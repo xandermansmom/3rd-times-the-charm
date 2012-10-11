@@ -4,33 +4,33 @@
 
 //My Variables
 
-
-//Object
-var residences = new Array();
-residences[0] = "Bellmead";
-residences[1] = "Mt. Calm";
-residences[2] = "Marble Falls";
-
-for (i=0;i<residences.length;i++)
-{
-console.log("I live in " + residences[0]+ "<br>");
-console.log("Chris lived in " + residences[1] + "<br>");
-console.log("Chris is moving to " + residences[2] );
-}
-
-
 for (var key in kin.family) {
 	var family = kin.family[key]
 };	
 
-    
-var handleData = function (json) {
-	for (var i = 0; i < kin.family.length; i++){
+
+var handleData = function (kin) {
+	for (var i = 0; i < kin.name.length; i++) {
 		var laFamilia = kin.family[i];
-		console.log(" Name: "  + laFamilia.name + " , Relationship: " + laFamilia.relationship + " , Age: " + laFamilia.age);
+		console.log("Name: " + family.name + ", Relationship: " + family.relationship + ", Age: " + family.age);
 	};
-	
 };
+
+
+//Object
+var residences = new Array();
+residences[0] = "Bellmead, Texas";
+residences[1] = "Mt. Calm, Texas";
+residences[2] = "Marble Falls, Texas";
+
+
+
+{
+console.log( + "lives in " + residences[0]);
+console.log(  +" lived in " + residences[1] );
+console.log(  +" is moving to " + residences[2] );
+}
+
 
 
 //Procedure
@@ -72,11 +72,10 @@ function savings() {
 };
 
 savings();
-
 //String Function
 function vow() {
-	   fiance = family[1]
-		me = family[2]
+	   fiance = laFamilia[1];
+		me = laFamilia[0];
 		becoming = " to be my lawfully wedded husband",
 		doWhat = " to have and to hold,",
 		fromWhen = " from this day forward",
