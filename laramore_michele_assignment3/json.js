@@ -28,15 +28,11 @@ var kin = {
 			"relationship": "child",
 			"age" : 8
 		}
-		}	
+	}
 	
 };
 
-for (var key in json.family) {
-	var family = json.family[key]
-	
-};	
-	
+
 		
 		
 		

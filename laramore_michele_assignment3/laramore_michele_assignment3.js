@@ -13,20 +13,20 @@ residences[2] = "Marble Falls";
 
 for (i=0;i<residences.length;i++)
 {
-console.log("I live in " + [0]+ "<br>");
-console.log("Chris lived in " + [1] + "<br>");
-console.log("Chris is moving to " + [2] );
+console.log("I live in " + residences[0]+ "<br>");
+console.log("Chris lived in " + residences[1] + "<br>");
+console.log("Chris is moving to " + residences[2] );
 }
 
 
-for (var key in json.family) {
-	var family = json.family[key]
+for (var key in kin.family) {
+	var family = kin.family[key]
 };	
 
     
 var handleData = function (json) {
-	for (var i = 0; i < json.family.length; i++){
-		var laFamilia = json.family[i];
+	for (var i = 0; i < kin.family.length; i++){
+		var laFamilia = kin.family[i];
 		console.log(" Name: "  + laFamilia.name + " , Relationship: " + laFamilia.relationship + " , Age: " + laFamilia.age);
 	};
 	
