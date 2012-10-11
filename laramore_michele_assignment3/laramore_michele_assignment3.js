@@ -6,38 +6,30 @@
 
 
 //Object
-var family = {
-    "Michele": [
-		"age": 43,
-		"relation": "Mom"
-		],
-	"Chris": [
-		"age" : 39,
-		"relation": "Dad"
-		],
-	"Tristan": [
-		"age": 17,
-		"relation" : "child"
-		],
-	"Xander": [
-		"age": 9,
-		"relation": "child"
-		],
-	"Willow": [
-		"age": 8
-		"relation": "child"
-		],
-		
-ar handleData = function (json) {
+var residences = new Array();
+residences[0] = "Bellmead";
+residences[1] = "Mt. Calm";
+residences[2] = "Marble Falls";
+
+for (i=0;i<residences.length;i++)
+{
+console.log("I live in " + [0]+ "<br>");
+console.log("Chris lived in " + [1] + "<br>");
+console.log("Chris is moving to " + [2] );
+}
+
+
+for (var key in json.family) {
+	var family = json.family[key]
+};	
+
+    
+var handleData = function (json) {
 	for (var i = 0; i < json.family.length; i++){
 		var laFamilia = json.family[i];
 		console.log(" Name: "  + laFamilia.name + " , Relationship: " + laFamilia.relationship + " , Age: " + laFamilia.age);
 	};
 	
-};
-		
-		
-joinFamilies: function(marriage){}
 };
 
 

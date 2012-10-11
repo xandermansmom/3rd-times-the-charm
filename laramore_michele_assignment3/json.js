@@ -31,18 +31,12 @@ var kin = {
 		}	
 	
 };
-var handleData = function (json) {
-	for (var i = 0; i < json.family.length; i++){
-		var laFamilia = json.family[i];
-		console.log(" Name: "  + laFamilia.name + " , Relationship: " + laFamilia.relationship + " , Age: " + laFamilia.age);
-	};
-	
-};
-
 
 for (var key in json.family) {
 	var family = json.family[key]
+	
 };	
+	
 		
 		
 		
