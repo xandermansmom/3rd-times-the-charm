@@ -10,8 +10,8 @@ for (var key in kin.family) {
 
 
 var handleData = function (kin) {
-	for (var i = 0; i < kin.name.length; i++) {
-		var laFamilia = kin.family[i];
+	for (var i = 0; i < kin.family.length; i++) {
+		var laFamilia = kin.family[1];
 		console.log("Name: " + family.name + ", Relationship: " + family.relationship + ", Age: " + family.age);
 	};
 };
@@ -26,32 +26,18 @@ residences[2] = "Marble Falls, Texas";
 
 
 {
-console.log( + "lives in " + residences[0]);
+console.log(name[1] + "lives in " + residences[0]);
 console.log(  +" lived in " + residences[1] );
 console.log(  +" is moving to " + residences[2] );
 }
 
 
 
-//Procedure
-var money = function marriage(timing) {
-    if (!timing) {
-        // Code that runs if true
-        console.log("We will have to wait until we have money to get married.");
-    } else {
-        // Code that runs if false
-        console.log("We can get married.");
-    }
-};
-
-money(true);
-
-
 
 //Boolean Function   
 var inLove = function(together, forever) {       
 
-	if (true && !false){
+	if (forever && !together){
         //If it is true there is love and false there is no love then this code runs
        console.log("We will stay together.");
 	} else {
@@ -74,8 +60,8 @@ function savings() {
 savings();
 //String Function
 function vow() {
-	   fiance = laFamilia[1];
-		me = laFamilia[0];
+	   fiance = [1];
+		me = [0];
 		becoming = " to be my lawfully wedded husband",
 		doWhat = " to have and to hold,",
 		fromWhen = " from this day forward",
@@ -88,9 +74,9 @@ vow();
 
 
 //Array Function
-function children() {
-	var names = family[2, 3, 4 ]
-	    age = sonAge + [ 8, 17]; 		
+function children(laFamilia) {
+	var names = name([4] [3] [2]);
+	    age =[ 9, 8, 17]; 		
 for (var i = 0; i < names.length; i++)  //lists childrens names in order incrementally
 	console.log(names[i] + " is " + age[i] + " years old. ");
 	console.log("We have a total of " + names.length + " children together.");
