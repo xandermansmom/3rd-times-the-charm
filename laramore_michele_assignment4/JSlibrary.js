@@ -10,11 +10,11 @@ var phoneNumber = function (theNumber) {
 	   \d represents [0-9]
 	   numbers in curly brackets represents number of digits */
 	   
- if (criterion.test(theNumber)) {
+ 		if (criterion.test(theNumber)) {
 		    return true;
 	    }else {
-	    return false;
-    }
+	    	return false;
+   		 }
 };
 console.log("Is the value a phone number? " + phoneNumber("123-456-7890"));
 
@@ -24,18 +24,26 @@ console.log("Is the value a phone number? " + phoneNumber("123-456-7890"));
 //Validate Email Address
 
 
-var eMail = function (elementValue){
-	var criterion = /^\[a-zA-Z0-9_\.-] + @ [a-zA-Z0-9_\.-] +\ . [a-zA-Z0-\9_.-]{2,5} $/;
-	/* ^ is beginning, 
-	   $ is end *
-	   [a-z] lower case alphabet
-	   [A-Z] upper case alphabet
-	  \d represents [0-9]
-	  _ represents an underscore included in e-mail address */
-	  
-return criterion(elementValue);
-	
+var eMail = function (theAddress){
+	var requirement = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+		/* ^ is beginning, 
+		 $ is end 
+		[a-z] lower case alphabet
+		[A-Z] upper case alphabet
+		[0-9] for numbers in address
+		\@ is at symbol escaped {must be escaped because used for other reasons in JS}
+		_ represents an underscore included in e-mail address
+		\. represents escaped period { period is used in JS so it must be escaped}
+		{2,4} is the min to max number of letters at the end of email address allowed */
+
+
+	if (requirement.test(theAddress)){
+		return true;
+	}else {
+		return false;
+	}
 };
+console.log("Is this a valid e-mail address? " + eMail("xandermansmom@aol.com"));
 
 
 //Validate Web Address
