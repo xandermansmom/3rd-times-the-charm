@@ -75,7 +75,7 @@ vow();
 
 //Array Function
 function children(laFamilia) {
-	var names = name([4] [3] [2]);
+	var names =[4] [3] [2];
 	    age =[ 9, 8, 17]; 		
 for (var i = 0; i < names.length; i++)  //lists childrens names in order incrementally
 	console.log(names[i] + " is " + age[i] + " years old. ");
