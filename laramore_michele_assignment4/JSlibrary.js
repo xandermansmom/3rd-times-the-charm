@@ -4,7 +4,7 @@
 //Validate Phone Number
 
 var phoneNumber = function (theNumber) {
-        var criterion = /^[1-9]\d{3}-[0-9]\d{3}-[0-9]\d{4}$/;
+        var criterion = /^\d{3}-\d{3}-\d{4}$/;
        /* ^ is beginning, 
 	   $ is end
 	   \d represents [0-9]
@@ -16,7 +16,7 @@ var phoneNumber = function (theNumber) {
 	    return false;
     }
 };
-console.log("Is the value a phone number?" + phoneNumber("123-456-7890"));
+console.log("Is the value a phone number? " + phoneNumber("123-456-7890"));
 
 
 
