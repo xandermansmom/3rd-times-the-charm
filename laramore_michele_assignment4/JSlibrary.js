@@ -65,11 +65,18 @@ console.log("Is this a valid web address? " + webAddress("http://nettuts.com"));
 
 
 //Switch Title Case
+var str = "This is my house.";
+str = str.toLowerCase().replace(/\b[a-z]/g, function(letter) {
+	/* toLowerCase converts a string to all lowercase
+		replace searches a string for a specified value or regex and returns a new string where the specified values are replaced.
+		\b matches a position where a word character is not followed or preceded by another character
+		\g  causes the replace call to replace all matches  {g means global}
+		toUpperCase converts a string to upper case letters
+	*/
+    return letter.toUpperCase();});
+console.log(str); 
 
-function createTitleCase(wordCase){
-	//TODO Fill in working code here to capitalize the first letter of every word;
-//return 
-};
+
 
 //Switch String Separator
 
