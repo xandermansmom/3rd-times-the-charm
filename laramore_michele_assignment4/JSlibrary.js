@@ -48,10 +48,20 @@ console.log("Is this a valid e-mail address? " + eMail("xandermansmom@aol.com"))
 
 //Validate Web Address
 
-function validateWebAddress(elementValue){
-	//TODO Fill in working code here that validates web address;
-//return 
+function webAddress(theUrl){
+	var urlReqs =/^https?:\/\/[a-zA-Z]+\.[a-zA-Z]{2,3}$/;
+	/*  (http|https) matches one or the other
+		? means it matches the preceding character 0 or 1 time so it can be either http or https
+		\/ is an escaped slash for // in the web address.
+		{2,3} is for address that have .co or .com or .net, etc. It can have 2 or 3 characters.
+	*/
+	if (urlReqs.test(theUrl)){
+		return true;
+	}else {
+		return false;
+	}
 };
+console.log("Is this a valid web address? " + webAddress("http://nettuts.com"));
 
 
 //Switch Title Case
