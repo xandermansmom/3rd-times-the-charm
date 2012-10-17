@@ -136,9 +136,11 @@ console.log (returnNumber());
 
 //Minimum Array Value Greater than given number
 
-Array.prototype.minGreaterThan=function(a){
-	var t=this,n=Number.POSITIVE_INFINITY,i;//POSITIVE_INFINITY is something higher than any other number
-	for (i=0;i<t.length;i++) if (a<t[i] && t[i]<n) n=t[i]; // for part iterates through the indices stored in the length of the array
+Array.prototype.minGreaterThan=function(f){ //Array.prototype refers to an array object and allows you to add new properties and methods to the object
+	var t=this,
+		n=Number.POSITIVE_INFINITY,i;//POSITIVE_INFINITY is something higher than any other number
+		
+		for (i=0;i<t.length;i++) if (f<t[i] && t[i]<n) n=t[i]; // for part iterates through length in array
 														// if part says if this given integer is bigger than certain part of the array and 
 														//another integer in the array is smaller than the given number then this number 
 														//equals this integer
@@ -146,17 +148,22 @@ Array.prototype.minGreaterThan=function(a){
 }
 
 var arr=[1,10,23,48],n=20;//array of numbers to chose from and given number
-
 console.log(arr.minGreaterThan(n)); 
 
 
 //Calculate total value of Array
 
-function calculateTotal(arrayValue){
-	//TODO fill in working code here to calculate the total value of numbers in array
-	//return
+function calculateTotal(){
+	var arr = [7, 'c', 10, 'f', 32, 'x'];
+		sum = 0
+		
+		for (var i=0; i<arr.length; i++) { //iterating through length of array
+ 		 if (!isNaN(parseInt(arr[i]))) { sum += arr[i]; }// if !isNan means if it is Not(Not a Number) then take the string and return a number
+		 												//from the array. The sum is equal to total value of the array. 
+		}
+		return sum;
 };
-
+console.log(calculateTotal());
 
 //Sort Array by Key
 
