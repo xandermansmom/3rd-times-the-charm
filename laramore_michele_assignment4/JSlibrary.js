@@ -124,13 +124,13 @@ console.log("There are " + (calculateDays())  + " days until Christmas 2012.");
 
 
 	
-//Return Number from String used toFixed
+//Return Number from String used parseInt() and parseFloat()
 
-function returnNumber(translateString){
-	//TODO fill in working code here to return a number from a string
-	//return
+function returnNumber(){
+	var strToNum = (parseInt("20"));
+return strToNum;
 };
-
+console.log (returnNumber());
 
 //Minimum Array Value Greater than given number
 
