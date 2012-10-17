@@ -69,7 +69,7 @@ var str = "This is my house.";
 str = str.toLowerCase().replace(/\b[a-z]/g, function(letter) {
 	/* toLowerCase converts a string to all lowercase  (This will become this)
 		replace searches a string for a specified value or regex and returns a new string where the specified values are replaced.
-		\b performs a whole world only search and matches the first character in the string
+		\b performs a whole word only search and matches the first character in the string
 		\g  causes the replace call to replace all matches  {g means global}
 		toUpperCase converts a string to upper case letters
 	*/
@@ -82,7 +82,7 @@ console.log(str);
 
 function stringSeparator(stringValue, separator){
 	var letters = "a,b,c"
-	newStr = letters.replace(/,/g,"/"); //comma had to be escaped so we could use /g --/g means global so all commas will be replaced
+	newStr = letters.replace(/,/g,"/"); //comma had to be escaped so I could use /g --/g means global so all commas will be replaced
 	return newStr;
 	}
 
@@ -93,22 +93,37 @@ console.log(stringSeparator("a,b,c", "/"));
 
 function formatNumber(numValue, decimalPlace){
 var num = 1.27699
-	newNum = num.toFixed(2);
+	newNum = num.toFixed(2);//toFixed converts a number into a string. The number in the parenthesis dictates number of decimal spots.
 return newNum;
 };
 console.log(formatNumber(1.27699, 2));
 
+
+
 //Fuzzy Match
 
-function fuzzyMatch(nearPercentage){
-	//TODO fill in working code here to match number in array to nearest percent.
-}
+function fuzzyMatch(numSeek, numCloseMatch){
+	var numArray = [5, 30, 45, 60, 79, 85]
+		num = 50
+	
+};
+console.log(fuzzyMatch(50, 45));
+
+
 
 //Calculate Days
 
 function calculateDays(){
-	//TODO fill in working code here to calculate number of days between two dates.
+	var time = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+	    today = new Date( )//function that gives us today's date
+	    Christmas = new Date (2012,11,25);//dates start with 0 so December is 11
+        diffDays = Math.abs((Christmas.getTime() - today.getTime())/time); 		
+return diffDays.toFixed();
+};//Math.abs returns the absolute value of Christmas day minus today divided by time, getTime returns milliseconds in the day
+console.log("There are " + (calculateDays())  + " days until Christmas 2012.");
 
+
+	
 //Return Number from String used toFixed
 
 function returnNumber(translateString){
@@ -141,4 +156,3 @@ function sortArray(findKey){
 
 
 
-}
