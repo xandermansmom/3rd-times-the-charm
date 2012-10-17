@@ -67,9 +67,9 @@ console.log("Is this a valid web address? " + webAddress("http://nettuts.com"));
 //Switch Title Case
 var str = "This is my house.";
 str = str.toLowerCase().replace(/\b[a-z]/g, function(letter) {
-	/* toLowerCase converts a string to all lowercase
+	/* toLowerCase converts a string to all lowercase  (This will become this)
 		replace searches a string for a specified value or regex and returns a new string where the specified values are replaced.
-		\b matches a position where a word character is not followed or preceded by another character
+		\b performs a whole world only search and matches the first character in the string
 		\g  causes the replace call to replace all matches  {g means global}
 		toUpperCase converts a string to upper case letters
 	*/
@@ -78,37 +78,37 @@ console.log(str);
 
 
 
-//Switch String Separator
+//Switch String Separator 
 
-function stringSeparator(switchSeparator){
-	//ToDo Fill in working code here to switch one separator with another;
-//return
-};
+function stringSeparator(stringValue, separator){
+	var letters = "a,b,c"
+	newstr = letters.replace(/,/g,"/"); //replace all commas with forward slashes /g means global so all commas will be replaced
+	return newstr;
+	}
+
+console.log(stringSeparator("a,b,c", "/"));
+
 
 //Format Number
+/*
+function formatNumber(){
+var num = new Number (1.27699);
 
-function formatNumber(placeDecimal){
-	//ToDo Fill in working code here to specify number of decimal places
-//return
 };
-
-
+console.log(num.toFixed(2));
+*/
 //Fuzzy Match
 
 function fuzzyMatch(nearPercentage){
-	//TODO Fill in working code here to match a number to the nearest percentage
-	//return
-};
-
+	//TODO fill in working code here to match number in array to nearest percent.
+}
 
 //Calculate Days
 
-function calculateDays(findNumber){
-	//TODO fill in working code here to calculate the number of days between two separate dates
-	//return
-};
+function calculateDays(){
+	//TODO fill in working code here to calculate number of days between two dates.
 
-//Return Number from String
+//Return Number from String used toFixed
 
 function returnNumber(translateString){
 	//TODO fill in working code here to return a number from a string
@@ -140,3 +140,4 @@ function sortArray(findKey){
 
 
 
+}
