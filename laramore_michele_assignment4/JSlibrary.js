@@ -127,17 +127,28 @@ console.log("There are " + (calculateDays())  + " days until Christmas 2012.");
 //Return Number from String used parseInt() and parseFloat()
 
 function returnNumber(){
-	var strToNum = (parseInt("20"));
+	var strToNum = (parseInt("20"));//parseInt takes a string and returns a number
 return strToNum;
 };
 console.log (returnNumber());
 
+
+
 //Minimum Array Value Greater than given number
 
-function minGreaterThan(givenValue){
-	//TODO fill in working code here to return smallest in array larger than given number
-	//return
-};
+Array.prototype.minGreaterThan=function(a){
+	var t=this,n=Number.POSITIVE_INFINITY,i;//POSITIVE_INFINITY is something higher than any other number
+	for (i=0;i<t.length;i++) if (a<t[i] && t[i]<n) n=t[i]; // for part iterates through the indices stored in the length of the array
+														// if part says if this given integer is bigger than certain part of the array and 
+														//another integer in the array is smaller than the given number then this number 
+														//equals this integer
+	return n;
+}
+
+var arr=[1,10,23,48],n=20;//array of numbers to chose from and given number
+
+console.log(arr.minGreaterThan(n)); 
+
 
 //Calculate total value of Array
 
