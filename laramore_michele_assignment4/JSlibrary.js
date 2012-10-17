@@ -82,21 +82,22 @@ console.log(str);
 
 function stringSeparator(stringValue, separator){
 	var letters = "a,b,c"
-	newstr = letters.replace(/,/g,"/"); //replace all commas with forward slashes /g means global so all commas will be replaced
-	return newstr;
+	newStr = letters.replace(/,/g,"/"); //comma had to be escaped so we could use /g --/g means global so all commas will be replaced
+	return newStr;
 	}
 
 console.log(stringSeparator("a,b,c", "/"));
 
 
 //Format Number
-/*
-function formatNumber(){
-var num = new Number (1.27699);
 
+function formatNumber(numValue, decimalPlace){
+var num = 1.27699
+	newNum = num.toFixed(2);
+return newNum;
 };
-console.log(num.toFixed(2));
-*/
+console.log(formatNumber(1.27699, 2));
+
 //Fuzzy Match
 
 function fuzzyMatch(nearPercentage){
