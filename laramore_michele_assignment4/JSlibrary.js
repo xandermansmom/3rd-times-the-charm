@@ -1,5 +1,10 @@
 //Javascript
 
+//COMMENTS ABOUT GRADES
+//PROJECT 3 -
+//	. Coding/Completeness: Missing many of the required elements from the flowchart.  -Everything in my flowchart is in this document
+// you don't have any methods. 
+
 
 //Validate Phone Number
 
@@ -102,12 +107,36 @@ console.log(formatNumber(1.27699, 2));
 
 //Fuzzy Match
 
-function fuzzyMatch(numSeek, numCloseMatch){
-	var numArray = [5, 30, 45, 60, 79, 85]
-		num = 50
-	
-};
-console.log(fuzzyMatch(50, 45));
+function binarySearch(arr,num){
+var numArray = [5, 30, 45, 60, 79, 85]
+	num = 50	
+    left = 0;
+    right = arr.length - 1;
+		while (left <= right){
+var mid = parseInt((left + right)/2);
+		if (arr[mid] == num)
+			return mid;
+		else if (arr[mid] < num)
+			left = mid + 1;
+		else
+			right = mid - 1;
+		}
+return arr.length;
+		}
+	function search(){
+	var element= binarySearch(arr,50);
+return element;
+	};
+console.log("The number you are searching for is " + (binarySearch([5, 30, 45, 60, 79, 85], 50)));
+
+//function fuzzyMatch(, percent){
+//	var numArray = [5, 30, 45, 60, 79, 85]
+//		num = 50
+	    
+	// return num;
+		 
+//};
+//console.log(fuzzyMatch(50, 100));
 
 
 
@@ -115,16 +144,16 @@ console.log(fuzzyMatch(50, 45));
 
 function calculateDays(){
 	var time = 24*60*60*1000; // hours*minutes*seconds*milliseconds
-	    today = new Date( )//function that gives us today's date
+	    today = new Date( )//function that gives us today's date     
 	    Christmas = new Date (2012,11,25);//dates start with 0 so December is 11
         diffDays = Math.abs((Christmas.getTime() - today.getTime())/time); 		
-return diffDays.toFixed();
+return diffDays.toFixed(); // Project 3 did not use method, toFixed() is a method
 };//Math.abs returns the absolute value of Christmas day minus today divided by time, getTime returns milliseconds in the day
 console.log("There are " + (calculateDays())  + " days until Christmas 2012.");
 
 
 	
-//Return Number from String used parseInt() and parseFloat()
+//Return Number from String 
 
 function returnNumber(){
 	var strToNum = (parseInt("20"));//parseInt takes a string and returns a number
@@ -167,10 +196,13 @@ console.log(calculateTotal());
 
 //Sort Array by Key
 
-function sortArray(findKey){
-	//TODO fill in working code here to sort an array by key
-	//return
-};
-
+function sortArray(aKey, array){
+      var key = "a:";
+          arr= [{a:2}, {a:1}, {a:3}]; 
+		  for (var i = 0; i < arr.length; i++)
+		  newArray = arr.sort("a:", [{a:2}, {a:1}, {a:3}]);    	
+        return newArray;
+}	
+console.log(sortArray("a:",[{a:2}, {a:1}, {a:3}]));
 
 
