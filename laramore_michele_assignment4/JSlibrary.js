@@ -107,37 +107,20 @@ console.log(formatNumber(1.27699, 2));
 
 //Fuzzy Match
 
-function binarySearch(arr,num){
-var numArray = [5, 30, 45, 60, 79, 85]
-	num = 50	
-    left = 0;
-    right = arr.length - 1;
-		while (left <= right){
-var mid = parseInt((left + right)/2);
-		if (arr[mid] == num)
-			return mid;
-		else if (arr[mid] < num)
-			left = mid + 1;
-		else
-			right = mid - 1;
-		}
-return arr.length;
-		}
-	function search(){
-	var element= binarySearch(arr,50);
-return element;
+	function fuzzyMatch(a, n){
+	var numArray = [5, 30, 45, 60, 79, 85]
+		num = 50
+	 if((l = a.length) < 2)
+        return l - 1;
+    for(var l, p = Math.abs(a[--l] - n); l--;)
+        if(p < (p = Math.abs(a[l] - n)))
+            break;
+    return l + 1;
+	var numArray = [", array, "];
+	"50 = ", getNearestNumber([5, 30, 45, 60, 79, 85], 50);
 	};
-console.log("The number you are searching for is " + (binarySearch([5, 30, 45, 60, 79, 85], 50)));
-
-//function fuzzyMatch(, percent){
-//	var numArray = [5, 30, 45, 60, 79, 85]
-//		num = 50
-	    
-	// return num;
-		 
-//};
-//console.log(fuzzyMatch(50, 100));
-
+	console.log("The number you are searching for is " + (fuzzyMatch([5, 30, 45, 60, 79, 85], 50) + " in the array of [5, 30, 45, 60, 79, 85]."));
+	
 
 
 //Calculate Days
@@ -147,7 +130,7 @@ function calculateDays(){
 	    today = new Date( )//function that gives us today's date     
 	    Christmas = new Date (2012,11,25);//dates start with 0 so December is 11
         diffDays = Math.abs((Christmas.getTime() - today.getTime())/time); 		
-return diffDays.toFixed(); // Project 3 did not use method, toFixed() is a method
+return diffDays.toFixed(); // MAKEUP: Project 3 did not use method, toFixed() is a method
 };//Math.abs returns the absolute value of Christmas day minus today divided by time, getTime returns milliseconds in the day
 console.log("There are " + (calculateDays())  + " days until Christmas 2012.");
 
@@ -199,10 +182,10 @@ console.log(calculateTotal());
 function sortArray(aKey, array){
       var key = "a:";
           arr= [{a:2}, {a:1}, {a:3}]; 
-		  for (var i = 0; i < arr.length; i++)
-		  newArray = arr.sort("a:", [{a:2}, {a:1}, {a:3}]);    	
-        return newArray;
-}	
+		  for (var i = 0; i < arr.length; i++);
+	 arr.sort( )
+	 return arr;
+};
 console.log(sortArray("a:",[{a:2}, {a:1}, {a:3}]));
 
 
