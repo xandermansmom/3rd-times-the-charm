@@ -1,0 +1,75 @@
+<!--	Michele Laramore 		
+		Activity 2       		
+		Visual Framweworks(VFW) 
+		Mobile Development		
+		Full Sail University  -->
+
+
+
+
+<!DOCTYPE html>
+<!--Michele Laramore-->
+<!--This is a comment. Comments are not displayed in the browser-->
+<!--Web App Part 1-->
+<!--Visual Frameworks 1210-->
+<html>
+	<head>   
+    	<meta charset="utf-8" />
+    	<meta name="keywords" content="special occasion, reminder" />
+    	<meta name="description" content="special occasion reminder app" />
+    	<meta name="robots" content="index, follow" />
+    	<meta name="viewport" content="user-scalable=no, width=device-width" />
+    	<meta name="author" content="Michele Laramore" />
+    	<title>Add Item to Form</title>
+        <link rel="stylesheet" href="style.css" type="text/css" />
+    </head>
+    <body> 
+    	<form action="" method="post"> 
+    	<h1>Special Occasion Book</h1>
+    		<fieldset>
+            	<legend>Contact Information</legend>
+                <ul>
+                	<li><label form="fname">First Name:</label> <input type="text" id="fname" /></li>
+    				<li><label form="lname">Last Name:</label> <input type="text" id="lname" /></li>
+    				<li><label form="email">Email:</label> <input type="text" id="email" placeholder="YourName@aol.com"/></li>
+                    <li> <label form="telephone">Telephone Number:</label><input type="tel" id="telephone" placeholder="817-339-0677" /></li>
+    				<li><label form="address">Street Address:</label> <input type="text" id="address" /></li>
+                    <li><label form="city">City:</label> <input type="text" id="city" /></li>
+                  	<li id = "select"><label for = "states">*Choose a State</label></li>
+                    
+                    <li><label form="zip">Zip Code: </label><input type="text" pattern="[0-9]*" /></li>
+			    </ul>
+   			</fieldset>
+   
+   			<fieldset>
+            	<legend>Special Occasion</legend>
+                  <ul>
+                  	<li id = "select"><label for = "occasion">*Choose a Special Occasion</label></li>
+                  </ul>
+                  	<ul>
+                    	<li><label form="date">Date of Special Occasion:</label> <input type="date" name="spOccasion" placeholder="10/28/2012"></li>
+                	</ul>
+                    	<ul>
+                        	<li><label form="sex">Is the person male or female?:</label></li>
+                    		<li><input type="radio" value="Male" id="male" name="sex" /> Male</li>
+                        	<li><input type="radio" value="Female" id="female" name="sex" /> Female</li>
+                    	</ul>
+                  <ul>
+                  	<li><label form="maxSpend">Maximum dollar amount to spend:</label>
+                    	<input type="range" name="spend" min="10" max="100"></li>
+                  </ul>
+                  <ul>
+                  	<li><label form="comments">What gift are you giving them?:</label> <textarea id="comments"></textarea></li>
+                    <li><input type="hidden" value="true" /></li>
+                  </ul>
+   			</fieldset>   
+            <input type="button" value="submit" name="submit information"/>
+            <a href="#" id ="clear">Clear Stored Data</a>  <a href="#" id="displayLink">Display Data</a>
+       </form>  
+          <script type="text/javascript" src="main.js"></script>
+          <script type="text/javascript" src="html5slider.js"></script>
+    </body>
+    
+
+
+

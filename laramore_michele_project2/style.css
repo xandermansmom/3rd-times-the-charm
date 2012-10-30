@@ -1,0 +1,124 @@
+/*	Michele Laramore 		
+	Activity 2       		
+	Visual Framweworks(VFW) 
+	Mobile Development		
+	Full Sail University  */	
+
+
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+	background-color: #f0f0f0;	
+	}
+
+h1 {
+	font: normal 30px/100% Times "Times New Roman", Times, serif;
+}
+
+fieldset {
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	width : 75% !important;	
+	}
+	
+legend {
+	background: #707070;
+	color: #fff;
+	border: solid 1px black;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	padding: 10px;
+	}
+
+input:not([type=button]), textarea {  
+    padding: 9px;  
+    border: solid 1px #e5e5e5;  
+    outline: 0;  
+    font: normal 13px/100% Verdana, Tahoma, sans-serif;  
+    width: 200px;  
+    background: -webkit-gradient(linear, left top, left 25, from(#ffffff), color-stop(25%, #eeeeee), to(#ffffff));  
+    background: -moz-linear-gradient(top, #ffffff, #eeeeee 1px, #ffffff 25px);  
+    box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+    -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+    -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+    }  
+			
+select {
+	height:40px;
+	font: normal 13px/100% Verdana, Tahoma, sans-serif;
+	padding: 9px;
+	color: #707070; 
+    }	
+	
+textarea {  
+    width: 400px;  
+    max-width: 400px;  
+    height: 150px;  
+    line-height: 150%;  
+    } 
+	
+/*style placeholder text light grey*/
+
+ input::-webkit-input-placeholder {
+    color:    #999;
+	}
+	
+input:-moz-placeholder {
+    color:    #999;
+	}
+	
+input:-ms-input-placeholder {
+    color:    #999;
+	}
+/*-----------------------------*/	
+	
+input:hover, textarea:hover {
+	 outline: none;
+	 border-color: #009;
+	 box-shadow:0 0 10px #9ecaed;
+	}
+	
+input:focus, textarea:focus { 
+	outline: none; 
+	border-width: 2px;
+    border-color: #ff0000;
+	}	   
+	
+label {  
+	display: block;
+    margin-left: 10px; 
+    color: #707070;  
+    }  
+	
+ul {list-style: none;
+	}
+	
+li {padding: 10px;
+	}
+	
+input[type=button] {
+  color: #fff;
+  background-color: #707070;
+  font-weight: bold;
+  padding: 12px;
+  -webkit-border-radius: 12px;
+ -moz-border-radius: 12px;
+  border-radius: 12px;
+	}
+			
+.submit input {  
+    width: auto;  
+    padding: 9px 15px;  
+    background: #617798;  
+    border: 0;  
+    font-size: 14px;  
+    color: #ffffff; 
+    -webkit-border-radius: 5px;  
+    -moz-border-radius: 5px;  
+    }  
+
+
+	
