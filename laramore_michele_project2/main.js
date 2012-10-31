@@ -14,6 +14,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	//Create select field and populate with options	
+	
 	function listOccasions(){
 		var formTag = document.getElementsByTagName("form"),
 			selectLi = $('select'),
@@ -30,6 +31,8 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	//Variable defaults
+	
 	var theOccasion = ["--Select an Occasion--", "birthday", "anniversary", "graduation"];
 	listOccasions();
 
+});  
