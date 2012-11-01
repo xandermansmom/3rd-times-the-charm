@@ -6,7 +6,6 @@
 
 //Wait until the DOM is ready.
 window.addEventListener("DOMContentLoaded", function(){
-	alert(localStorage.value(0));
 	
 	//getElementByIdFunction
 	function $(x){
@@ -15,21 +14,21 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	//Dynamically create select field, create an array and populate select field with array
-	/* function listStates(){
-		 var createTag = getElementsByTagName("form"),
-		 	pickLi = $('choose'),
-			createSelect = document.createElement('choose');
-			createSelect = set.Attribute("id", "states");
+	 function listStates(){
+		 var thisTag = document.getElementsByTagName("form"),
+		 	selectLi = $('select'),
+			createSelect = document.createElement('select');
+			createSelect.setAttribute("id", "states");
 		for(var i=0, j=theStates.length; i<j; i++){
 			var createOption = document.createElement('option');
 			var optContent = theStates[i];
-			makeOption.setAttribute("value", optContent);
-			makeOption.innerHTML = optContent;
-			makeSelect.appendChild(makeOption);
+			createOption.setAttribute("value", optContent);
+			createOption.innerHTML = optContent;
+			createSelect.appendChild(createOption);
 		}
-		selectLi.appendChild(makeSelect); 
+		selectLi.appendChild(createSelect); 
 	}
-	*/
+
 	function listOccasions(){
 		var formTag = document.getElementsByTagName("form"),
 			selectLi = $('select'),
@@ -74,20 +73,21 @@ window.addEventListener("DOMContentLoaded", function(){
 			item.comments		= ["Comments", $('comments').value];				
 		//Save data into local storage. Use stringify to convert objects into strings.
 		localStorage.setItem(id, JSON.stringify(item));
-		alert("Special Occasion is saved!");		
+		alert("The Special Occasion is saved!");		
 	}
 	
 	//Variable defaults
 	
-	/*var theStates = new Array("Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "District of Columbia",
-							"Florida", "Georgia", "Hawaii","Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", 	"Maryland",
-								"Massachusetts","Michigan", "Minnesota", "Mississippi","Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", 
-								"New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma","Oregon", "Pennsylvania", 	
-								"Rhode Island", "South Carolina", "South Dakota", "Tennessee","Texas", "Utah", "Vermont", "Virginia", "Washington", 
-								"West Virginia", "Wisconsin", "Wyoming");
+	var theStates = 			["--Which State?--", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
+								 "District of Columbia", "Florida", "Georgia", "Hawaii","Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", 
+								 "Louisiana","Maine", "Maryland","Massachusetts","Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska",
+								 "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma",
+								 "Oregon","Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee","Texas", "Utah", "Vermont",
+								 "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"];			
+								
 	listStates();
-*/	
-	var theOccasion = ["--Select an Occasion--", "birthday", "anniversary", "graduation"],
+	
+	var theOccasion = ["--Which Special Occasion?--", "Birthday", "Anniversary", "Graduation"],
 		sexValue;
 	listOccasions();
 
