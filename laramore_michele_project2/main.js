@@ -64,7 +64,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			item.telephone		= [ "Telephone", $('telephone').value];
 			item.address		= [ "Address", $('address').value];
 			item.city			= ["City" , $('city').value];
-			item.state			= ["State", $('state').value];
+			item.state			= ["State", $('states').value];
 			item.zip			= [ "Zip", $('zip').value];
 			item.occasion		= ["Occasion", $('occasion').value];
 			item.date			= ["Date", $('date').value];
