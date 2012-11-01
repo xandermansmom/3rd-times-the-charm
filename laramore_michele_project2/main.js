@@ -13,10 +13,46 @@ window.addEventListener("DOMContentLoaded", function(){
 		return theElement;
 	}
 	
+	var textField1 = document.getElementById("fname");
+	var textField2 = document.getElementById("lname");
+	var textField3 = document.getElementById("email");
+	var textField4 = document.getElementById("telephone");
+	var textField5 = document.getElementById("address");
+	var textField6 = document.getElementById("city");
+	var textField7 = document.getElementById("zip");
+	var textField8 = document.getElementById("date");
+	var textField9 = document.getElementById("spend");
+	var textField10 = document.getElementById("comments");
+	
+	var changeBorder = function(){
+		//Highlight text field a neon blue on focus
+		textField1.setAttribute("class", "hasFocus");
+		textField2.setAttribute("class", "hasFocus");	
+		textField3.setAttribute("class", "hasFocus");
+		textField4.setAttribute("class", "hasFocus");
+		textField5.setAttribute("class", "hasFocus");
+		textField6.setAttribute("class", "hasFocus");
+		textField7.setAttribute("class", "hasFocus");
+		textField8.setAttribute("class", "hasFocus");
+		textField9.setAttribute("class", "hasFocus");
+		textField10.setAttribute("class","hasFocus");		
+	}
+	textField1.addEventListener("focus", changeBorder);
+	textField2.addEventListener("focus", changeBorder);
+	textField3.addEventListener("focus", changeBorder);
+	textField4.addEventListener("focus", changeBorder);
+	textField5.addEventListener("focus", changeBorder);
+	textField6.addEventListener("focus", changeBorder);
+	textField7.addEventListener("focus", changeBorder);
+	textField8.addEventListener("focus", changeBorder);
+	textField9.addEventListener("focus", changeBorder);
+	textField10.addEventListener("focus", changeBorder);
+
+
 	//Dynamically create select field, create an array and populate select field with array
 	 function listStates(){
 		 var thisTag = document.getElementsByTagName("form"),
-		 	selectLi = $('select'),
+		 	selectLi = $('states'),
 			createSelect = document.createElement('select');
 			createSelect.setAttribute("id", "states");
 		for(var i=0, j=theStates.length; i<j; i++){
@@ -31,7 +67,7 @@ window.addEventListener("DOMContentLoaded", function(){
 
 	function listOccasions(){
 		var formTag = document.getElementsByTagName("form"),
-			selectLi = $('select'),
+			selectLi = $('occasion'),
 			makeSelect = document.createElement('select');
 			makeSelect.setAttribute("id", "occasion");
 		for(var i=0, j=theOccasion.length; i<j; i++){
