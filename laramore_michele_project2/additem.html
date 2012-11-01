@@ -17,8 +17,13 @@
         <link rel="stylesheet" href="style.css" type="text/css" />
     </head>
     <body> 
-    	<form action="" method="post"> 
-    	<h1>Special Occasion Book</h1>
+    	<form action="#" method="post" id="spOccForm"> 
+    	<header><h1>Special Occasion Book</h1></header>
+        <nav>
+        	<a href="#" id ="clear">Clear Stored Data</a>
+            <a href="#" id="displayLink">Display Data</a>
+            <a href="additem.html" id="addNew" style="display:none">Add New Item</a>
+        </nav>
     		<fieldset>
             	<legend>Contact Information</legend>
                 <ul>
@@ -56,7 +61,6 @@
                   </ul>
    			</fieldset>   
             <input type="button" value="submit" id ="submit"/>
-            <a href="#" id ="clear">Clear Stored Data</a>  <a href="#" id="displayLink">Display Data</a>
        </form>  
           <script type="text/javascript" src="main.js"></script>
           <script type="text/javascript" src="html5slider.js"></script>

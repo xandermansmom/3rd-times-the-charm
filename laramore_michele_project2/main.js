@@ -52,12 +52,33 @@ window.addEventListener("DOMContentLoaded", function(){
 				sexValue = radios[i].value;
 			}
 		}
+	}
 	
+	function toggleControls(n){
+		//switch display from form to form data display page. Add link to addNew data so you can switch back to form.
+		switch(n){
+			case "on":
+				$('spOccForm').style.display = "none";
+				$('clear').style.display = "inline";
+				$('displayLink').style.display = "none";
+				$('addNew').style.display = "inline";
+				break;	
+			case "off":
+				$('spOccForm').style.display = "block";
+				$('clear').style.display = "inline";
+				$('displayLink').style.display = "inline";
+				$('addNew').style.display = "none";	
+				$('items').style.display = "none";		
+				break;
+			default:
+				return false;
+		}
 	}
 	function saveData(){
 		var id 				= Math.floor(Math.random()*100000001);
 		//Gather form field values and store in an object
 		//Object properties contain an array with the form label and input value
+		var item 				= {};
 			item.fname			= ["First Name", $('fname').value ];
 			item.lname			= [ "Last Name", $('lname').value ];
 			item.email			= [ "Email", $('email').value];
@@ -69,19 +90,21 @@ window.addEventListener("DOMContentLoaded", function(){
 			item.occasion		= ["Occasion", $('occasion').value];
 			item.date			= ["Date", $('date').value];
 			item.sex			= ["Sex", sexValue];
-			item.spend			= ["Spend", spendValue];
+			item.spend			= ["Spend", $('spend').value];
 			item.comments		= ["Comments", $('comments').value];				
 		//Save data into local storage. Use stringify to convert objects into strings.
 		localStorage.setItem(id, JSON.stringify(item));		
 		alert("The Special Occasion is saved!");		
 	}
 	function getData(){
+		toggleControls("on");
 	//Write data from local storage to the browser
 	var makeDiv = document.createElement('div');
 	makeDiv.setAttribute("id", "items");
 	var makeList = document.createElement('ul');
 	makeDiv.appendChild(makeList);
 	document.body.appendChild(makeDiv);
+	$('items').style.display = "block";		
 	for(var i=0, len=localStorage.length; i<len; i++);{
 		var makeLi = document.createElement('li');
 		makeList.appendChild(makeLi);
