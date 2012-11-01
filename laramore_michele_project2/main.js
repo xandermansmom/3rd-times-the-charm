@@ -72,10 +72,34 @@ window.addEventListener("DOMContentLoaded", function(){
 			item.spend			= ["Spend", spendValue];
 			item.comments		= ["Comments", $('comments').value];				
 		//Save data into local storage. Use stringify to convert objects into strings.
-		localStorage.setItem(id, JSON.stringify(item));
+		localStorage.setItem(id, JSON.stringify(item));		
 		alert("The Special Occasion is saved!");		
 	}
-	
+	function getData(){
+	//Write data from local storage to the browser
+	var makeDiv = document.createElement('div');
+	makeDiv.setAttribute("id", "items");
+	var makeList = document.createElement('ul');
+	makeDiv.appendChild(makeList);
+	document.body.appendChild(makeDiv);
+	for(var i=0, len=localStorage.length; i<len; i++);{
+		var makeLi = document.createElement('li');
+		makeList.appendChild(makeLi);
+		var key = localStorage.key(i);
+		var value = localStorage.getItem(key);
+		//Convert the string in local storage back into an object using JSON.parse method
+		var obj =JSON.parse(value);	
+		var makeSubList = document.createElement('ul');
+		makeLi.appendChild(makeSubList);
+		for(var n in obj){
+			var makeSubLi = document.createElement('li');
+			makeSubList.appendChild(makeSubLi);
+			var optSubText = obj[n][0]+" "+obj[n][1];
+			makeSubLi.innerHTML = optSubText;
+			}
+		}
+		
+	}
 	//Variable defaults
 	
 	var theStates = 			["--Which State?--", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
@@ -95,9 +119,9 @@ window.addEventListener("DOMContentLoaded", function(){
 
 //Set Link and Submit Click Events
 
-	/*	var displayLink = $('displayLink');
+		var displayLink = $('displayLink');
 		displayLink.addEventListener("click", getData);
-		var clearLink = $('clear');
+		/*var clearLink = $('clear');
 		displayLink.addEventListener("click", clearData); */
 		var save = $('submit');
 		displayLink.addEventListener("click", saveData);
