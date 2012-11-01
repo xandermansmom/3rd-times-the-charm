@@ -58,6 +58,10 @@ window.addEventListener("DOMContentLoaded", function(){
 		//switch display from form to form data display page. Add link to addNew data so you can switch back to form.
 		switch(n){
 			case "on":
+			if(localStorage.length === 0){
+				alert("There is no data.")
+			}
+			//Write data from local storage to the browser.
 				$('spOccForm').style.display = "none";
 				$('clear').style.display = "inline";
 				$('displayLink').style.display = "none";
@@ -123,6 +127,18 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 		
 	}
+	
+	function clearData(){
+		//clear data from local storage.
+		if(localStorage.length === 0){
+			alert("There is no data to clear.")
+		}else{
+			localStorage.clear();
+			alert("All data is cleared.");
+			window.location.reload;
+			return false;
+		}		
+	}
 	//Variable defaults
 	
 	var theStates = 			["--Which State?--", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
@@ -144,8 +160,8 @@ window.addEventListener("DOMContentLoaded", function(){
 
 		var displayLink = $('displayLink');
 		displayLink.addEventListener("click", getData);
-		/*var clearLink = $('clear');
-		displayLink.addEventListener("click", clearData); */
+		var clearLink = $('clear');
+		displayLink.addEventListener("click", clearData); 
 		var save = $('submit');
 		displayLink.addEventListener("click", saveData);
 });
