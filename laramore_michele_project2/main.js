@@ -13,41 +13,6 @@ window.addEventListener("DOMContentLoaded", function(){
 		return theElement;
 	}
 	
-	var textField1 = document.getElementById("fname");
-	var textField2 = document.getElementById("lname");
-	var textField3 = document.getElementById("email");
-	var textField4 = document.getElementById("telephone");
-	var textField5 = document.getElementById("address");
-	var textField6 = document.getElementById("city");
-	var textField7 = document.getElementById("zip");
-	var textField8 = document.getElementById("date");
-	var textField9 = document.getElementById("spend");
-	var textField10 = document.getElementById("comments");
-	
-	var changeBorder = function(){
-		//Highlight text field a neon blue on focus
-		textField1.setAttribute("class", "hasFocus");
-		textField2.setAttribute("class", "hasFocus");	
-		textField3.setAttribute("class", "hasFocus");
-		textField4.setAttribute("class", "hasFocus");
-		textField5.setAttribute("class", "hasFocus");
-		textField6.setAttribute("class", "hasFocus");
-		textField7.setAttribute("class", "hasFocus");
-		textField8.setAttribute("class", "hasFocus");
-		textField9.setAttribute("class", "hasFocus");
-		textField10.setAttribute("class","hasFocus");		
-	}
-	textField1.addEventListener("focus", changeBorder);
-	textField2.addEventListener("focus", changeBorder);
-	textField3.addEventListener("focus", changeBorder);
-	textField4.addEventListener("focus", changeBorder);
-	textField5.addEventListener("focus", changeBorder);
-	textField6.addEventListener("focus", changeBorder);
-	textField7.addEventListener("focus", changeBorder);
-	textField8.addEventListener("focus", changeBorder);
-	textField9.addEventListener("focus", changeBorder);
-	textField10.addEventListener("focus", changeBorder);
-
 
 	//Dynamically create select field, create an array and populate select field with array
 	 function listStates(){
@@ -95,7 +60,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		switch(n){
 			case "on":
 			if(localStorage.length === 0){
-				alert("There is no data.")
+				alert("There is no data.");
 			}
 			//Write data from local storage to the browser.
 				$('spOccForm').style.display = "none";
@@ -114,38 +79,43 @@ window.addEventListener("DOMContentLoaded", function(){
 				return false;
 		}
 	}
+	
 	function saveData(){
 		var id 				= Math.floor(Math.random()*100000001);
 		//Gather form field values and store in an object
 		//Object properties contain an array with the form label and input value
 		var item 				= {};
-			item.fname			= ["First Name", $('fname').value ];
-			item.lname			= [ "Last Name", $('lname').value ];
-			item.email			= [ "Email", $('email').value];
-			item.telephone		= [ "Telephone", $('telephone').value];
-			item.address		= [ "Address", $('address').value];
-			item.city			= ["City" , $('city').value];
-			item.state			= ["State", $('states').value];
-			item.zip			= [ "Zip", $('zip').value];
-			item.occasion		= ["Occasion", $('occasion').value];
-			item.date			= ["Date", $('date').value];
-			item.sex			= ["Sex", sexValue];
-			item.spend			= ["Spend", $('spend').value];
-			item.comments		= ["Comments", $('comments').value];				
+			item.fname			= ["First Name:", $('fname').value];
+			item.lname			= [ "Last Name:", $('lname').value];
+			item.email			= [ "Email:", $('email').value];
+			item.telephone		= [ "Telephone:", $('telephone').value];
+			item.address		= [ "Address:", $('address').value];
+			item.city			= ["City:" , $('city').value];
+			item.state			= ["State:", $('states').value];
+			item.zip			= [ "Zip:", $('zip').value];
+			item.occasion		= ["Occasion:", $('occasion').value];
+			item.date			= ["Date:", $('date').value];
+			item.sex			= ["Sex:", sexValue];
+			item.spend			= ["Spend:", $('spend').value];
+			item.comments		= ["Comments:", $('comments').value];				
 		//Save data into local storage. Use stringify to convert objects into strings.
 		localStorage.setItem(id, JSON.stringify(item));		
 		alert("The Special Occasion is saved!");		
 	}
+	
 	function getData(){
 		toggleControls("on");
+		if(localStorage.length === 0){
+			alert("There is no data in local storage.");
+		}	
 	//Write data from local storage to the browser
 	var makeDiv = document.createElement('div');
 	makeDiv.setAttribute("id", "items");
 	var makeList = document.createElement('ul');
 	makeDiv.appendChild(makeList);
 	document.body.appendChild(makeDiv);
-	$('items').style.display = "block";		
-	for(var i=0, len=localStorage.length; i<len; i++);{
+	$('items').style.display = "display";		
+	for(var i=0, len=localStorage.length; i<len; i++){
 		var makeLi = document.createElement('li');
 		makeList.appendChild(makeLi);
 		var key = localStorage.key(i);
@@ -161,13 +131,12 @@ window.addEventListener("DOMContentLoaded", function(){
 			makeSubLi.innerHTML = optSubText;
 			}
 		}
-		
 	}
 	
 	function clearData(){
 		//clear data from local storage.
 		if(localStorage.length === 0){
-			alert("There is no data to clear.")
+			alert("There is no data to clear.");
 		}else{
 			localStorage.clear();
 			alert("All data is cleared.");
@@ -175,6 +144,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			return false;
 		}		
 	}
+	
 	//Variable defaults
 	
 	var theStates = 			["--Which State?--", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",

@@ -83,7 +83,7 @@ input:-ms-input-placeholder {
 	}
 /*-----------------------------*/	
 	
-hasFocus {
+.hasFocus {
 	 outline: none;
 	 border-color: #009;
 	 box-shadow:0 0 10px #9ecaed;
