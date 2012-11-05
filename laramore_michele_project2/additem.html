@@ -24,39 +24,42 @@
             <a href="#" id="displayLink">Display Data</a>
             <a href="additem.html" id="addNew" style="display:none">Add New Item</a>
         </nav>
-    		<fieldset>
+    		<fieldset id ="spOcFieldset1">
             	<legend>Contact Information</legend>
+                <span>*fields are required</span>
                 <ul>
-                	<li><label form="fname">First Name:</label> <input type="text" id="fname" /></li>
-    				<li><label form="lname">Last Name:</label> <input type="text" id="lname" /></li>
-    				<li><label form="email">Email:</label> <input type="text" id="email" placeholder="YourName@aol.com"/></li>
-                    <li> <label form="telephone">Telephone Number:</label><input type="tel" id="telephone" placeholder="817-339-0677" /></li>
-    				<li><label form="address">Street Address:</label> <input type="text" id="address" /></li>
-                    <li><label form="city">City:</label> <input type="text" id="city" /></li>
-                  	<li id="select"><label form="states" id = "states">*Choose a State</label></li>
-                    <li><label form="zip">Zip Code: </label><input type="text" id="zip" pattern="[0-9]*" /></li>
+                	<li><label for="fname">First Name:</label> <input type="text" id="fname" /></li>
+    				<li><label for="lname">Last Name:</label> <input type="text" id="lname" /></li>
+    				<li><label for="email">Email:</label> <input type="text" id="email" placeholder="YourName@aol.com"/></li>
+                    <li> <label for="telephone">Telephone Number:</label><input type="tel" id="telephone" placeholder="817-339-0677" /></li>
+    				<li><label for="address">Street Address:</label> <input type="text" id="address" /></li>
+                    <li><label for="city">City:</label> <input type="text" id="city" /></li>
+                  	<li id="select"><label for="states" id = "states">*Choose a State</label></li>
+                    <li><label for="zip">Zip Code: </label><input type="text" id="zip" pattern="[0-9]*" /></li>
 			    </ul>
    			</fieldset>
    
-   			<fieldset>
+   			<fieldset = "spOcFieldset2">
             	<legend>Special Occasion</legend>
-                  <ul
-                  	<li id="select"><label form ="occasion" id ="occasion">*Choose a Special Occasion</label></li>
+                <span>*fields are required</span>
+                <ul id ="errors"></ul>
+                  <ul>
+                  	<li id="select"><label for ="occasion" id ="occasion">*Choose a Special Occasion</label></li>
                   </ul>
                   	<ul>
-                    	<li><label form="date">Date of Special Occasion:</label> <input type="date" id = "date" name="spOccasion" placeholder="10/28/2012"></li>
+                    	<li><label for="date">Date of Special Occasion:</label> <input type="date" id = "date" name="spOccasion" placeholder="10/28/2012"></li>
                 	</ul>
                     	<ul>
-                        	<li><label form="sex">Is the person male or female?:</label></li>
+                        	<li><label for="sex">Is the person male or female?:</label></li>
                     		<li><input type="radio" value="Male" id="male" name="sex" /> Male</li>
                         	<li><input type="radio" value="Female" id="female" name="sex" /> Female</li>
                     	</ul>
                   <ul>
-                  	<li><label form="maxSpend">Maximum dollar amount to spend:</label>
+                  	<li><label for="maxSpend">Maximum dollar amount to spend:</label>
                     	<input type="range" name="spend" id="spend" min="10" max="100"></li>
                   </ul>
                   <ul>
-                  	<li><label form="comments">What gift are you giving them?:</label> <textarea id="comments"></textarea></li>
+                  	<li><label for="comments">What gift are you giving them?:</label> <textarea id="comments"></textarea></li>
                     <li><input type="hidden" value="true" /></li>
                   </ul>
    			</fieldset>   

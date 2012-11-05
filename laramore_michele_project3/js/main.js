@@ -1,5 +1,5 @@
 //	Michele Laramore
-//	Activity 2
+//	Activity 3
 //	Visual Frameworks(VFW)
 //	Mobile Development
 //	Full Sail University
@@ -13,7 +13,6 @@ window.addEventListener("DOMContentLoaded", function(){
 		return theElement;
 	}
 	
-
 	//Dynamically create select field, create an array and populate select field with array
 	 function listStates(){
 		 var thisTag = document.getElementsByTagName("form"),
@@ -44,6 +43,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 		selectLi.appendChild(makeSelect);
 	}
+	
 	
 	//Find value of selected radio button
 	function getSelectedRadio(){
@@ -94,7 +94,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			item.telephone		= [ "Telephone:", $('telephone').value];
 			item.address		= [ "Address:", $('address').value];
 			item.city			= ["City:" , $('city').value];
-			item.state			= ["State:", $('states').value];
+			item.states			= ["State:", $('states').value];
 			item.zip			= [ "Zip:", $('zip').value];
 			item.occasion		= ["Occasion:", $('occasion').value];
 			item.date			= ["Date:", $('date').value];
@@ -117,7 +117,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	var makeList = document.createElement('ul');
 	makeDiv.appendChild(makeList);
 	document.body.appendChild(makeDiv);
-	$('items').style.display = "display";		
+	$('items').style.display = "block";		
 	for(var i=0, len=localStorage.length; i<len; i++){
 		var makeLi = document.createElement('li');
 		var linksLi = document.createElement('li');
@@ -135,7 +135,79 @@ window.addEventListener("DOMContentLoaded", function(){
 			makeSubLi.innerHTML = optSubText;
 			makeSubList.appendChild(linksLi);
 			}
+			makeItemLinks(localStorage.key(i), linksLi);//Create edit and delete links for each list item in local storage
 		}
+	}
+
+	
+	//Make Item Links
+	//Create the edit and delete links for each stored item when displayed
+	
+	function makeItemLinks(key, linksLi){
+		//add edit single item link
+		var editLink = document.createElement('a');
+	    editLink.href ="#";
+		editLink.key = key;
+		var editText = "Edit Data";
+		editLink.addEventListener("click", editItem);
+		editLink.innerHTML = editText;
+		linksLi.appendChild(editLink);
+		
+		//add break tag
+		var breakTag = document.createElement('br');
+		linksLi.appendChild(breakTag);
+		
+		
+		//add delete single item link
+		var deleteLink = document.createElement('a');
+	    deleteLink.href = "#";
+		deleteLink.key = key;
+		var deleteText = "Delete Data";
+		//deleteLink.addEventListener("click", deleteItem);
+		deleteLink.innerHTML = deleteText;
+		linksLi.appendChild(deleteLink);
+	}
+	
+	//Edit single item
+	function editItem(){
+		//grab data from item in local storage
+		var value = localStorage.getItem(this.key);
+		var item = JSON.parse(value);
+		
+		//Show the form
+		toggleControls("off");
+		
+		//populate the form fields with current localStorage values.
+		$('fname').value = item.fname[1];
+		$('lname').value = item.lname[1];
+		$('email').value = item.email[1];
+		$('telephone').value = item.telephone[1];
+		$('address').value = item.address[1];
+		$('city').value = item.city[1];
+		$('states').value = item.states[1];
+		$('zip').value = item.zip[1];
+		$('occasion').value = item.occasion[1];
+		$('date').value = item.date[1];
+		var radios = document.forms[0].sex;
+		for(var i = 0; i<radios.length; i++){
+			if (radios[i].value == "Male" && item.sex[1] == "Male"){
+				radios[i].setAttribute("checked", "checked");
+			}else if(radios[i].value == "Female" && item.sex[1] == "Female"){
+				radios[i].setAttribute("checked", "checked");	
+			}
+		}
+		$('spend').value = item.spend[1];
+		$('comments').value = item.comments[1];
+		
+		//Remove initial listener from the input 'save data' button.
+		save.removeEventListener("click", saveData);
+		//Change Submit Button value to Edit Button
+		$('submit').value = "Edit Data";
+		var editSubmit = $('submit');
+		//Save the key value established in this function as a property of the editSubmit event
+		//so we can use that value when we save the data we edited
+		editSubmit.addEventListener("click", validate);
+		editSubmit.key = this.key;
 	}
 	
 	function clearData(){
@@ -149,6 +221,96 @@ window.addEventListener("DOMContentLoaded", function(){
 			return false;
 		}		
 	}
+	
+	function validate(e){
+		//Define the elements we want to check
+		var getFname 		= $('fname');
+		var getLname	 	= $('lname');
+		var getEmail 		= $('email');
+		var getTelephone 	= $('telephone');
+		var getState        = $('states');
+		var getZip   		= $('zip');
+		var getOccasion     = $('occasion');
+		
+		//Reset Error Messages
+		errMsg.innerHTML = "";
+		getFname.style.border = "1px solid black";
+		getLname.style.border = "1px solid black";
+		getEmail.style.border ="1px solid black";
+		getTelephone.style.border = "1px solid black";
+		getState.style.border = "1px solid black";
+		getZip.style.border = "1px solid blak";
+		getOccasion.style.border = "1px solid black";
+		
+		//Get Error messages
+		var messageAry = [];
+		
+		//First Name Validation
+		if(getFname.value ===""){
+			var fNameError = "Please enter a first name.";
+			getFname.style.border = "1px solid red";
+			messageAry.push(fNameError);			
+		}
+		
+		//Last Name Validation
+		if(getLname.value ===""){
+			var lNameError = "Please enter a last name.";
+			getLname.style.border = "1px solid red";
+			messageAry.push(lNameError);			
+		}
+		
+		//Email Validation
+		var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})$/;
+		if(!(re.exec(getEmail.value))){
+			var emailError = "Please enter a valid email address.";
+			getEmail.style.border ="1px solid red";
+			messageAry.push(emailError);
+		}
+		
+		//Telephone Validation
+		var phone = /^[1-9]\d{3}-[0-9]\d{3}-[0-9]\d{4}$/;
+		if(!(phone.exe(getTelephone.value))){
+			var phoneError = "Please enter a valid telephone number.";
+			getTelephone.style.border = "1px solid red";
+			messageAry.push(phoneError);
+		}
+		
+		//State Validation
+		if(getState.value === "--Which State?--"){
+			var stateError = "Please choose a state.";
+			getState.style.border = "1px solid red";
+			messageAry.push(stateError);	
+		}	
+		
+		//Zip Code Validation
+		var zip = /^\d{5}(?:[-\s]\d{4})?$/;
+		if(!(zip.exe(getZip.value))){
+			var zipError = "Please enter a valid zip code.";
+			getZip.style.border = "1px solid red";
+			messageAry.push(zipError);
+		}
+		
+		//Occasion Validation
+		if(getOccasion.value === "--Which Occasion?--"){
+			var occasionError = "Please choose an occasion.";
+			getOccasion.style.border = "1px solid red";
+			messageAry.push(occasionError);	
+		}	
+		
+		//If there were errors, display them on the screen
+		if(messageAry.length >=1){
+			for(var i = 0, j=messageAry.length; i<j; i++){
+				var txt = document.createElement('li');
+				txt.innerHTML = messageAry[i];
+				errMsg.appendChild(txt);			
+		}	
+		e.preventDefault();
+		return false;				
+	}else{
+		//If all is good, save the data
+		storeData(this.key);		
+	}
+}
 	
 	//Variable defaults
 	
@@ -174,5 +336,5 @@ window.addEventListener("DOMContentLoaded", function(){
 		var clearLink = $('clear');
 		clearLink.addEventListener("click", clearData); 
 		var save = $('submit');
-		save.addEventListener("click", saveData);
+		save.addEventListener("click", validate);
 });
