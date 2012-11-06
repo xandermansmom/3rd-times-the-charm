@@ -16,9 +16,9 @@ window.addEventListener("DOMContentLoaded", function(){
 	//Dynamically create select field, create an array and populate select field with array
 	 function listStates(){
 		 var thisTag = document.getElementsByTagName("form"),
-		 	selectLi = $('states'),
+		 	selectLi = $('st'),
 			createSelect = document.createElement('select');
-			createSelect.setAttribute("id", "states");
+			createSelect.setAttribute("id", "st");
 		for(var i=0, j=theStates.length; i<j; i++){
 			var createOption = document.createElement('option');
 			var optContent = theStates[i];
@@ -31,9 +31,9 @@ window.addEventListener("DOMContentLoaded", function(){
 
 	function listOccasions(){
 		var formTag = document.getElementsByTagName("form"),
-			selectLi = $('occasion'),
+			selectLi = $('oc'),
 			makeSelect = document.createElement('select');
-			makeSelect.setAttribute("id", "occasion");
+			makeSelect.setAttribute("id", "oc");
 		for(var i=0, j=theOccasion.length; i<j; i++){
 			var makeOption = document.createElement('option');
 			var optText = theOccasion[i];
@@ -81,7 +81,16 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	function saveData(key){
+		//If there is no key, generate a new key for the brand new item
+		if(!key){
 		var id 				= Math.floor(Math.random()*100000001);	
+		}else{
+			//Set the id to the existing key of the item we are editing so it replaces the existing data and doesn't create new data.
+			//This key is the same key that has been passed from the editSubmit event handler.
+			//to the validate function and then passed here to the saveData function.
+			id = key;
+		}
+		
 		//Find value of radio button
 		getSelectedRadio();
 		
@@ -163,7 +172,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	    deleteLink.href = "#";
 		deleteLink.key = key;
 		var deleteText = "Delete Data";
-		//deleteLink.addEventListener("click", deleteItem);
+		deleteLink.addEventListener("click", deleteItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
 	}
@@ -208,6 +217,17 @@ window.addEventListener("DOMContentLoaded", function(){
 		//so we can use that value when we save the data we edited
 		editSubmit.addEventListener("click", validate);
 		editSubmit.key = this.key;
+	}
+	
+	function deleteItem(){
+		var ask = confirm("Are you sure you want to delete this record?");
+		if(ask){
+			localStorage.removeItem(this.key);
+			alert("Record was deleted!");
+			window.location.reload();
+		}else{
+			alert("Record was NOT deleted.")
+		}
 	}
 	
 	function clearData(){
@@ -307,7 +327,8 @@ window.addEventListener("DOMContentLoaded", function(){
 		e.preventDefault();
 		return false;				
 	}else{
-		//If all is good, save the data
+		//If all is good, save the data! Save the key value (which came from our editData function ).
+		//This key value was passed through the editSubmit eventListener as a property.
 		storeData(this.key);		
 	}
 }
@@ -336,5 +357,5 @@ window.addEventListener("DOMContentLoaded", function(){
 		var clearLink = $('clear');
 		clearLink.addEventListener("click", clearData); 
 		var save = $('submit');
-		save.addEventListener("click", validate);
+		save.addEventListener("click", saveData);
 });

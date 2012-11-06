@@ -78,7 +78,7 @@ input[type="radio"] {
 }
 	
 	
-/*style placeholder text light grey*/
+/*styles placeholder text light grey*/
 
 input::-webkit-input-placeholder {
     color:    #999;
