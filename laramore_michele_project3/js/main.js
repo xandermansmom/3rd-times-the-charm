@@ -16,9 +16,9 @@ window.addEventListener("DOMContentLoaded", function(){
 	//Dynamically create select field, create an array and populate select field with array
 	 function listStates(){
 		 var thisTag = document.getElementsByTagName("form"),
-		 	selectLi = $('st'),
+		 	selectLi = $('selectSt'),
 			createSelect = document.createElement('select');
-			createSelect.setAttribute("id", "st");
+			createSelect.setAttribute("id", "states");
 		for(var i=0, j=theStates.length; i<j; i++){
 			var createOption = document.createElement('option');
 			var optContent = theStates[i];
@@ -31,9 +31,9 @@ window.addEventListener("DOMContentLoaded", function(){
 
 	function listOccasions(){
 		var formTag = document.getElementsByTagName("form"),
-			selectLi = $('oc'),
+			selectLi = $('selectOc'),
 			makeSelect = document.createElement('select');
-			makeSelect.setAttribute("id", "oc");
+			makeSelect.setAttribute("id", "ocassion");
 		for(var i=0, j=theOccasion.length; i<j; i++){
 			var makeOption = document.createElement('option');
 			var optText = theOccasion[i];
@@ -103,9 +103,9 @@ window.addEventListener("DOMContentLoaded", function(){
 			item.telephone		= [ "Telephone:", $('telephone').value];
 			item.address		= [ "Address:", $('address').value];
 			item.city			= ["City:" , $('city').value];
-			item.states			= ["State:", $('states').value];
+			item.state			= ["State:", $('states').value];
 			item.zip			= [ "Zip:", $('zip').value];
-			item.occasion		= ["Occasion:", $('occasion').value];
+			item.occasions		= ["Occasion:", $('occasion').value];
 			item.date			= ["Date:", $('date').value];
 			item.sex			= ["Sex:", sexValue];
 			item.spend			= ["Spend:", $('spend').value];
@@ -193,9 +193,9 @@ window.addEventListener("DOMContentLoaded", function(){
 		$('telephone').value = item.telephone[1];
 		$('address').value = item.address[1];
 		$('city').value = item.city[1];
-		$('states').value = item.states[1];
+		$('state').value = item.states[1];
 		$('zip').value = item.zip[1];
-		$('occasion').value = item.occasion[1];
+		$('occasions').value = item.occasion[1];
 		$('date').value = item.date[1];
 		var radios = document.forms[0].sex;
 		for(var i = 0; i<radios.length; i++){

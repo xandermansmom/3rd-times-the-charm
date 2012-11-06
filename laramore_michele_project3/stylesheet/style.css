@@ -35,10 +35,6 @@ fieldset.explicit-width{
     width: 1%; /* Will expand to fit content */
 	}
 
-fieldset.inline-block{
-    display: inline-block;
-	}
-
 legend {
 	background: #707070;
 	color: #fff;
@@ -74,7 +70,7 @@ select {
 }
 
 input[type="radio"] {
-	margin-right: -90px;
+	width: inherit;
 }
 	
 	
