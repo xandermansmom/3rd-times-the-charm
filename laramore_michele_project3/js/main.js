@@ -193,9 +193,9 @@ window.addEventListener("DOMContentLoaded", function(){
 		$('telephone').value = item.telephone[1];
 		$('address').value = item.address[1];
 		$('city').value = item.city[1];
-		$('state').value = item.states[1];
+		$('states').value = item.states[1];
 		$('zip').value = item.zip[1];
-		$('occasions').value = item.occasion[1];
+		$('occasion').value = item.occasion[1];
 		$('date').value = item.date[1];
 		var radios = document.forms[0].sex;
 		for(var i = 0; i<radios.length; i++){
@@ -226,7 +226,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			alert("Record was deleted!");
 			window.location.reload();
 		}else{
-			alert("Record was NOT deleted.")
+			alert("Record was NOT deleted.");
 		}
 	}
 	
@@ -329,7 +329,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	}else{
 		//If all is good, save the data! Save the key value (which came from our editData function ).
 		//This key value was passed through the editSubmit eventListener as a property.
-		storeData(this.key);		
+		saveData(this.key);		
 	}
 }
 	
@@ -340,15 +340,13 @@ window.addEventListener("DOMContentLoaded", function(){
 								 "Louisiana","Maine", "Maryland","Massachusetts","Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska",
 								 "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma",
 								 "Oregon","Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee","Texas", "Utah", "Vermont",
-								 "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"];			
-								
+								 "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"],	
+	    theOccasion = ["--Which Special Occasion?--", "Birthday", "Anniversary", "Graduation"],
+		sexValue,
+		errMsg = ('errors');
+	;								
 	listStates();
-	
-	var theOccasion = ["--Which Special Occasion?--", "Birthday", "Anniversary", "Graduation"],
-		sexValue;
 	listOccasions();
-
-  
 
 //Set Link and Submit Click Events
 
