@@ -33,7 +33,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var formTag = document.getElementsByTagName("form"),
 			selectLi = $('selectOc'),
 			makeSelect = document.createElement('select');
-			makeSelect.setAttribute("id", "ocassion");
+			makeSelect.setAttribute("id", "occasion");
 		for(var i=0, j=theOccasion.length; i<j; i++){
 			var makeOption = document.createElement('option');
 			var optText = theOccasion[i];
@@ -343,10 +343,10 @@ window.addEventListener("DOMContentLoaded", function(){
 								 "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"],	
 	    theOccasion = ["--Which Special Occasion?--", "Birthday", "Anniversary", "Graduation"],
 		sexValue,
-		errMsg = ('errors');
+		errMsg = ('errors');		
 	;								
-	listStates();
-	listOccasions();
+		listStates();
+		listOccasions();
 
 //Set Link and Submit Click Events
 
