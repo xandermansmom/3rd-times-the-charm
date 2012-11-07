@@ -136,6 +136,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		toggleControls("on");
 		if(localStorage.length === 0){
 			alert("There is no data in local storage.");
+			window.location.reload();
 		}	
 	//Write data from local storage to the browser
 	var makeDiv = document.createElement('div');
@@ -210,9 +211,9 @@ window.addEventListener("DOMContentLoaded", function(){
 		$('telephone').value = item.telephone[1];
 		$('address').value = item.address[1];
 		$('city').value = item.city[1];
-		$('states').value = item.states[1];
+		$('states').value = item.state[1];
 		$('zip').value = item.zip[1];
-		$('occasion').value = item.occasion[1];
+		$('occasion').value = item.occasions[1];
 		$('date').value = item.date[1];
 		var radios = document.forms[0].sex;
 		for(var i = 0; i<radios.length; i++){
@@ -268,6 +269,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var getState        = $('states');
 		var getZip   		= $('zip');
 		var getOccasion     = $('occasion');
+		var getCalDay		= $('date');
 		
 		//Reset Error Messages
 		errMsg.innerHTML = "";
@@ -278,6 +280,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		getState.style.border = "1px solid black";
 		getZip.style.border = "1px solid blak";
 		getOccasion.style.border = "1px solid black";
+		getCalDay.style.border = "1px solid black";
 		
 		//Get Error messages
 		var messageAry = [];
@@ -305,7 +308,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 		
 		//Telephone Validation
-		var phone = /^[1-9]\d{3}-[0-9]\d{3}-[0-9]\d{4}$/;
+		var phone = /^\d{3}-\d{3}-\d{4}$/;
 		if(!(phone.exec(getTelephone.value))){
 			var phoneError = "Please enter a valid telephone number.";
 			getTelephone.style.border = "1px solid red";
@@ -333,6 +336,14 @@ window.addEventListener("DOMContentLoaded", function(){
 			getOccasion.style.border = "1px solid red";
 			messageAry.push(occasionError);	
 		}	
+		
+		//Date Validation
+		var date = /^\d{2}[./-/]\d{2}[./-/]\d{4}$/;
+		if(!(date.exec(getCalDay.value))){
+			var dateError = "Please enter a valid date in the following format: mm/dd/yyyy";
+			getCalDay.style.border = "1px solid red";
+			messageAry.push(dateError);
+		}
 		
 		//If there were errors, display them on the screen
 		if(messageAry.length >=1){
