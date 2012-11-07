@@ -13,6 +13,22 @@ window.addEventListener("DOMContentLoaded", function(){
 		return theElement;
 	}
 	
+	//Variable defaults
+	
+	var theStates = 			["--Which State?--", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
+								 "District of Columbia", "Florida", "Georgia", "Hawaii","Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", 
+								 "Louisiana","Maine", "Maryland","Massachusetts","Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska",
+								 "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma",
+								 "Oregon","Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee","Texas", "Utah", "Vermont",
+								 "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"],	
+	    theOccasion = ["--Which Special Occasion?--", "Birthday", "Anniversary", "Graduation"],
+		sexValue,
+		errMsg = ('errors');		
+							
+		listStates();
+		listOccasions();
+	
+	
 	//Dynamically create select field, create an array and populate select field with array
 	 function listStates(){
 		 var thisTag = document.getElementsByTagName("form"),
@@ -199,9 +215,9 @@ window.addEventListener("DOMContentLoaded", function(){
 		$('date').value = item.date[1];
 		var radios = document.forms[0].sex;
 		for(var i = 0; i<radios.length; i++){
-			if (radios[i].value == "Male" && item.sex[1] == "Male"){
+			if (radios[i].value === "Male" && item.sex[1] == "Male"){
 				radios[i].setAttribute("checked", "checked");
-			}else if(radios[i].value == "Female" && item.sex[1] == "Female"){
+			}else if(radios[i].value === "Female" && item.sex[1] == "Female"){
 				radios[i].setAttribute("checked", "checked");	
 			}
 		}
@@ -280,7 +296,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 		
 		//Email Validation
-		var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})$/;
+		var re = /^\w+([\.\-]?\w+)*@\w+([\.\-]?\w+)*(\.\w{2,3})$/;
 		if(!(re.exec(getEmail.value))){
 			var emailError = "Please enter a valid email address.";
 			getEmail.style.border ="1px solid red";
@@ -289,7 +305,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		
 		//Telephone Validation
 		var phone = /^[1-9]\d{3}-[0-9]\d{3}-[0-9]\d{4}$/;
-		if(!(phone.exe(getTelephone.value))){
+		if(!(phone.exec(getTelephone.value))){
 			var phoneError = "Please enter a valid telephone number.";
 			getTelephone.style.border = "1px solid red";
 			messageAry.push(phoneError);
@@ -303,8 +319,8 @@ window.addEventListener("DOMContentLoaded", function(){
 		}	
 		
 		//Zip Code Validation
-		var zip = /^\d{5}(?:[-\s]\d{4})?$/;
-		if(!(zip.exe(getZip.value))){
+		var zip = /^\d{5}(?:[\-\s]\d{4})?$/;
+		if(!(zip.exec(getZip.value))){
 			var zipError = "Please enter a valid zip code.";
 			getZip.style.border = "1px solid red";
 			messageAry.push(zipError);
@@ -333,20 +349,6 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 }
 	
-	//Variable defaults
-	
-	var theStates = 			["--Which State?--", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
-								 "District of Columbia", "Florida", "Georgia", "Hawaii","Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", 
-								 "Louisiana","Maine", "Maryland","Massachusetts","Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska",
-								 "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma",
-								 "Oregon","Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee","Texas", "Utah", "Vermont",
-								 "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"],	
-	    theOccasion = ["--Which Special Occasion?--", "Birthday", "Anniversary", "Graduation"],
-		sexValue,
-		errMsg = ('errors');		
-	;								
-		listStates();
-		listOccasions();
 
 //Set Link and Submit Click Events
 
@@ -355,5 +357,5 @@ window.addEventListener("DOMContentLoaded", function(){
 		var clearLink = $('clear');
 		clearLink.addEventListener("click", clearData); 
 		var save = $('submit');
-		save.addEventListener("click", saveData);
+		save.addEventListener("click", validate);
 });
