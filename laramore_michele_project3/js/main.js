@@ -338,9 +338,9 @@ window.addEventListener("DOMContentLoaded", function(){
 		}	
 		
 		//Date Validation
-		var date = /^\d{2}[./-/]\d{2}[./-/]\d{4}$/;
+		var date = /^\d{2}[./-/]\d{2}[./-/]\d{2}$/;
 		if(!(date.exec(getCalDay.value))){
-			var dateError = "Please enter a valid date in the following format: mm/dd/yyyy";
+			var dateError = "Please enter a valid date in the following format: mm/dd/yy";
 			getCalDay.style.border = "1px solid red";
 			messageAry.push(dateError);
 		}
