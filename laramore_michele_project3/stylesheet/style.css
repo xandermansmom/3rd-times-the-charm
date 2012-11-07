@@ -99,7 +99,11 @@ input:-ms-input-placeholder {
 	outline: none; 
 	border-width: 2px;
     border-color: #ff0000;
-	}	   
+	}	
+	
+ #errors li {
+	color: #C33;
+	}
 	
 label {  
 	display: block;

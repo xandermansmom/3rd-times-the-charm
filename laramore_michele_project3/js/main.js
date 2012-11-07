@@ -13,7 +13,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		return theElement;
 	}
 	
-	//Variable defaults
+	//Variable defaults 	
 	
 	var theStates = 			["--Which State?--", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
 								 "District of Columbia", "Florida", "Georgia", "Hawaii","Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", 
@@ -23,7 +23,8 @@ window.addEventListener("DOMContentLoaded", function(){
 								 "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"],	
 	    theOccasion = ["--Which Special Occasion?--", "Birthday", "Anniversary", "Graduation"],
 		sexValue,
-		errMsg = ('errors');		
+		errMsg = $('errors');
+			
 							
 		listStates();
 		listOccasions();
@@ -280,7 +281,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		
 		//Get Error messages
 		var messageAry = [];
-		
+				
 		//First Name Validation
 		if(getFname.value ===""){
 			var fNameError = "Please enter a first name.";
@@ -345,7 +346,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	}else{
 		//If all is good, save the data! Save the key value (which came from our editData function ).
 		//This key value was passed through the editSubmit eventListener as a property.
-		saveData(this.key);		
+		saveData(this.key);	
 	}
 }
 	
@@ -359,3 +360,4 @@ window.addEventListener("DOMContentLoaded", function(){
 		var save = $('submit');
 		save.addEventListener("click", validate);
 });
+
