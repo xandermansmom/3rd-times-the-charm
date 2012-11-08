@@ -50,7 +50,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var formTag = document.getElementsByTagName("form"),
 			selectLi = $('selectOc'),
 			makeSelect = document.createElement('select');
-			makeSelect.setAttribute("id", "occasion");
+			makeSelect.setAttribute("id", "occasions");
 		for(var i=0, j=theOccasion.length; i<j; i++){
 			var makeOption = document.createElement('option');
 			var optText = theOccasion[i];
@@ -120,9 +120,9 @@ window.addEventListener("DOMContentLoaded", function(){
 			item.telephone		= [ "Telephone:", $('telephone').value];
 			item.address		= [ "Address:", $('address').value];
 			item.city			= ["City:" , $('city').value];
-			item.state			= ["State:", $('states').value];
+			item.states			= ["State:", $('states').value];
 			item.zip			= [ "Zip:", $('zip').value];
-			item.occasions		= ["Occasion:", $('occasion').value];
+			item.occasions		= ["Occasion:", $('occasions').value];
 			item.date			= ["Date:", $('date').value];
 			item.sex			= ["Sex:", sexValue];
 			item.spend			= ["Spend:", $('spend').value];
@@ -211,9 +211,9 @@ window.addEventListener("DOMContentLoaded", function(){
 		$('telephone').value = item.telephone[1];
 		$('address').value = item.address[1];
 		$('city').value = item.city[1];
-		$('states').value = item.state[1];
+		$('states').value = item.states[1];
 		$('zip').value = item.zip[1];
-		$('occasion').value = item.occasions[1];
+		$('occasions').value = item.occasions[1];
 		$('date').value = item.date[1];
 		var radios = document.forms[0].sex;
 		for(var i = 0; i<radios.length; i++){
@@ -268,7 +268,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var getTelephone 	= $('telephone');
 		var getState        = $('states');
 		var getZip   		= $('zip');
-		var getOccasion     = $('occasion');
+		var getOccasion     = $('occasions');
 		var getCalDay		= $('date');
 		
 		//Reset Error Messages
