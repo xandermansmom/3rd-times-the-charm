@@ -104,6 +104,24 @@ input:-ms-input-placeholder {
  #errors li {
 	color: #C33;
 	}
+
+		
+#items  {
+	background: #fff;
+	float: left;
+	padding-top: 0;
+	}
+
+#items li: firstchild{
+	margin: 1em;
+}
+		
+#items li {
+	text-align: left;
+	padding-top: 1%;
+	padding-left: 0;
+	color: #000;
+	}	
 	
 label {  
 	display: block;

@@ -138,19 +138,19 @@ window.addEventListener("DOMContentLoaded", function(){
 			alert("There is no data in local storage.");
 			window.location.reload();
 		}	
-	//Write data from local storage to the browser
+	//Write data from local storage to the browser		
 	var makeDiv = document.createElement('div');
 	makeDiv.setAttribute("id", "items");
 	var makeList = document.createElement('ul');
 	makeDiv.appendChild(makeList);
 	document.body.appendChild(makeDiv);
-	$('items').style.display = "block";		
+	$('items').style.display = "display";		
 	for(var i=0, len=localStorage.length; i<len; i++){
 		var makeLi = document.createElement('li');
 		var linksLi = document.createElement('li');
 		makeList.appendChild(makeLi);
 		var key = localStorage.key(i);
-		var value = localStorage.getItem(key);
+		var value = localStorage.getItem(key);		
 		//Convert the string in local storage back into an object using JSON.parse method
 		var obj =JSON.parse(value);	
 		var makeSubList = document.createElement('ul');
@@ -193,6 +193,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		deleteLink.addEventListener("click", deleteItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
+	
 	}
 	
 	//Edit single item
@@ -202,7 +203,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var item = JSON.parse(value);
 		
 		//Show the form
-		toggleControls("off");
+		toggleControls("off");		
 		
 		//populate the form fields with current localStorage values.
 		$('fname').value = item.fname[1];
@@ -224,17 +225,18 @@ window.addEventListener("DOMContentLoaded", function(){
 			}
 		}
 		$('spend').value = item.spend[1];
-		$('comments').value = item.comments[1];
-		
+		$('comments').value = item.comments[1];		
 		//Remove initial listener from the input 'save data' button.
 		save.removeEventListener("click", saveData);
 		//Change Submit Button value to Edit Button
 		$('submit').value = "Edit Data";
-		var editSubmit = $('submit');
+		var editSubmit = $('submit'); 
+		//Clear items in HTML cache
+		items.innerHTML = ""; 
 		//Save the key value established in this function as a property of the editSubmit event
 		//so we can use that value when we save the data we edited
 		editSubmit.addEventListener("click", validate);
-		editSubmit.key = this.key;
+		editSubmit.key = this.key;			
 	}
 	
 	function deleteItem(){
@@ -259,6 +261,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			return false;
 		}		
 	}
+	
 	
 	function validate(e){
 		//Define the elements we want to check
