@@ -331,7 +331,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 		
 		//Occasion Validation
-		if(getOccasion.value === "--Which Occasion?--"){
+		if(getOccasion.value === "--Which Special Occasion?--"){
 			var occasionError = "Please choose an occasion.";
 			getOccasion.style.border = "1px solid red";
 			messageAry.push(occasionError);	
