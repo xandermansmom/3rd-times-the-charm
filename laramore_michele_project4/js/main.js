@@ -1,5 +1,5 @@
 //	Michele Laramore
-//	Activity 3
+//	Activity 4
 //	Visual Frameworks(VFW)
 //	Mobile Development
 //	Full Sail University
@@ -135,8 +135,8 @@ window.addEventListener("DOMContentLoaded", function(){
 	function getData(){
 		toggleControls("on");
 		if(localStorage.length === 0){
-			alert("There is no data in local storage.");
-			window.location.reload();
+			alert("There is no data in local storage so default data was added.");
+			autoFillData();
 		}	
 	//Write data from local storage to the browser		
 	var makeDiv = document.createElement('div');
@@ -155,6 +155,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var obj =JSON.parse(value);	
 		var makeSubList = document.createElement('ul');
 		makeLi.appendChild(makeSubList);
+		/*getImage(obj.occasions[1], makeSubList);*/
 		for(var n in obj){
 			var makeSubLi = document.createElement('li');
 			makeSubList.appendChild(makeSubLi);
@@ -165,7 +166,26 @@ window.addEventListener("DOMContentLoaded", function(){
 			makeItemLinks(localStorage.key(i), linksLi);//Create edit and delete links for each list item in local storage
 		}
 	}
-
+	
+	/*//Get the image for the right category
+	function getImage(catName, makeSubList){
+		var imageLi = document.createElement('li');
+		makeSubList.appendChild(imageLi);
+		var newImg = document.createElement('img');
+		var setSrc = newImg.setAttribute("src", "images/"+ catName +".png");
+		imageLi.appendchild(newImg);
+	
+	}
+*/
+	//Auto Populate Local Storage
+	function autoFillData(){
+		//The actual JSON OBJECT required for this to work is coming from our json.js file which is loaded from our HTML page.
+		//Store the JSON OBJECT in local storage.
+		for(var n in json){
+			var id = Math.floor(Math.random()*100000001);	
+				localStorage.setItem(id, JSON.stringify(json[n]));
+		}	
+	}
 	
 	//Make Item Links
 	//Create the edit and delete links for each stored item when displayed
@@ -341,9 +361,9 @@ window.addEventListener("DOMContentLoaded", function(){
 		}	
 		
 		//Date Validation
-		var date =/^\d{2}[./-/]\d{2}[./-/]\d{2}$/;
+		var date =/^(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)\s\d{2},\s\d{4}/i;
 		if(!(date.exec(getCalDay.value))){
-			var dateError = "Please enter a valid date in the following format: Jan/dd/yy";
+			var dateError = "Please enter a valid date in the following format: Jan/dd/yyyy";
 			getCalDay.style.border = "1px solid red";
 			messageAry.push(dateError);
 		}
