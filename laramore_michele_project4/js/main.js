@@ -177,6 +177,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	}
 */
+
 	//Auto Populate Local Storage
 	function autoFillData(){
 		//The actual JSON OBJECT required for this to work is coming from our json.js file which is loaded from our HTML page.
@@ -361,7 +362,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		}	
 		
 		//Date Validation
-		var date =/^(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)\s\d{2},\s\d{4}/i;
+		var date =/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s\d{2},\s\d{4}/i;
 		if(!(date.exec(getCalDay.value))){
 			var dateError = "Please enter a valid date in the following format: Jan/dd/yyyy";
 			getCalDay.style.border = "1px solid red";
