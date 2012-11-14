@@ -155,7 +155,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var obj =JSON.parse(value);	
 		var makeSubList = document.createElement('ul');
 		makeLi.appendChild(makeSubList);
-		/*getImage(obj.occasions[1], makeSubList);*/
+		getImage(obj.occasion[1], makeSubList);
 		for(var n in obj){
 			var makeSubLi = document.createElement('li');
 			makeSubList.appendChild(makeSubLi);
@@ -167,7 +167,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 	
-	/*//Get the image for the right category
+	//Get the image for the right category
 	function getImage(catName, makeSubList){
 		var imageLi = document.createElement('li');
 		makeSubList.appendChild(imageLi);
@@ -176,7 +176,6 @@ window.addEventListener("DOMContentLoaded", function(){
 		imageLi.appendchild(newImg);
 	
 	}
-*/
 
 	//Auto Populate Local Storage
 	function autoFillData(){

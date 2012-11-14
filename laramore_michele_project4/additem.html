@@ -20,9 +20,11 @@
 
 <body>
     <form action="#" id="spOccForm" method="post" name="spOccForm">
+    <div class = "box">
         <header>
             <h1>Special Occasion Book</h1>
         </header>
+    </div>
 
         <nav>
             <a href="#" id="clear">Clear Stored Data</a> <a href="#" id=
@@ -41,7 +43,7 @@
 
                 <li><label for="lname">Last Name:</label> <input id="lname"
                 type="text"></li>
-
+                
                 <li><label for="email">Email:</label> <input id="email"
                 placeholder="YourName@aol.com" type="text"></li>
 
@@ -69,7 +71,7 @@
         <fieldset id = "spOcFieldset2">
             <legend>Special Occasion</legend> <span>*fields are required</span>
 
-            <ul id="errors"></ul>
+           <!-- <ul id="errors"></ul>-->
 
             <ul>
                 <li id="selectOc"><label for="oc" id="occ">*Choose a
@@ -95,8 +97,7 @@
             </ul>
 
             <ul>
-                <li dollar><label for="maxSpend">Maximum dollar amount to
-                spend:</label> <input id="spend" max="100" min="10" name=
+                <li dollar><label for="maxSpend">How much to spend:</label> <input id="spend" max="100" min="10" name=
                 "spend" type="range" onchange="rangevalue.value=value"><output id="rangevalue"></output></li>
             </ul>
 
