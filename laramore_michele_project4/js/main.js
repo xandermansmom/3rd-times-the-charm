@@ -6,15 +6,15 @@
 
 //Wait until the DOM is ready.
 window.addEventListener("DOMContentLoaded", function(){
-	
+
 	//getElementByIdFunction
 	function $(x){
 		var theElement = document.getElementById(x);
 		return theElement;
 	}
-	
+
 	//Variable defaults 	
-	
+
 	var theStates = 			["--Which State?--", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
 								 "District of Columbia", "Florida", "Georgia", "Hawaii","Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", 
 								 "Louisiana","Maine", "Maryland","Massachusetts","Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska",
@@ -24,12 +24,12 @@ window.addEventListener("DOMContentLoaded", function(){
 	    theOccasion = ["--Which Special Occasion?--", "Birthday", "Anniversary", "Graduation"],
 		sexValue,
 		errMsg = $('errors');
-			
-							
+
+
 		listStates();
 		listOccasions();
-	
-	
+
+
 	//Dynamically create select field, create an array and populate select field with array
 	 function listStates(){
 		 var thisTag = document.getElementsByTagName("form"),
@@ -60,18 +60,19 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 		selectLi.appendChild(makeSelect);
 	}
-	
-	
+
+
 	//Find value of selected radio button
 	function getSelectedRadio(){
 		var radios = document.forms[0].sex;
+		radios.label.style = "black";
 		for(var i=0; i<radios.length; i++){
 			if(radios[i].checked){
 				sexValue = radios[i].value;
 			}
 		}
 }
-	
+
 	function toggleControls(n){
 		//switch display from form to form data display page. Add link to addNew data so you can switch back to form.
 		switch(n){
@@ -96,7 +97,7 @@ window.addEventListener("DOMContentLoaded", function(){
 				return false;
 		}
 	}
-	
+
 	function saveData(key){
 		//If there is no key, generate a new key for the brand new item
 		if(!key){
@@ -107,10 +108,10 @@ window.addEventListener("DOMContentLoaded", function(){
 			//to the validate function and then passed here to the saveData function.
 			id = key;
 		}
-		
+
 		//Find value of radio button
 		getSelectedRadio();
-		
+
 		//Gather form field values and store in an object
 		//Object properties contain an array with the form label and input value
 		var item 				= {};
@@ -131,7 +132,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		localStorage.setItem(id, JSON.stringify(item));		
 		alert("The Special Occasion is saved!");		
 	}
-	
+
 	function getData(){
 		toggleControls("on");
 		if(localStorage.length === 0){
@@ -166,7 +167,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			makeItemLinks(localStorage.key(i), linksLi);//Create edit and delete links for each list item in local storage
 		}
 	}
-	
+
 	//Get the image for the right category
 	function getImage(catName, makeSubList){
 		var imageLi = document.createElement('li');
@@ -174,7 +175,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var newImg = document.createElement('img');
 		var setSrc = newImg.setAttribute("src", "images/"+ catName +".png");
 		imageLi.appendchild(newImg);
-	
+
 	}
 
 	//Auto Populate Local Storage
@@ -186,10 +187,10 @@ window.addEventListener("DOMContentLoaded", function(){
 				localStorage.setItem(id, JSON.stringify(json[n]));
 		}	
 	}
-	
+
 	//Make Item Links
 	//Create the edit and delete links for each stored item when displayed
-	
+
 	function makeItemLinks(key, linksLi){
 		//add edit single item link
 		var editLink = document.createElement('a');
@@ -199,12 +200,12 @@ window.addEventListener("DOMContentLoaded", function(){
 		editLink.addEventListener("click", editItem);
 		editLink.innerHTML = editText;
 		linksLi.appendChild(editLink);
-		
+
 		//add break tag
 		var breakTag = document.createElement('br');
 		linksLi.appendChild(breakTag);
-		
-		
+
+
 		//add delete single item link
 		var deleteLink = document.createElement('a');
 	    deleteLink.href = "#";
@@ -213,18 +214,18 @@ window.addEventListener("DOMContentLoaded", function(){
 		deleteLink.addEventListener("click", deleteItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
-	
+
 	}
-	
+
 	//Edit single item
 	function editItem(){
 		//grab data from item in local storage
 		var value = localStorage.getItem(this.key);
 		var item = JSON.parse(value);
-		
+
 		//Show the form
 		toggleControls("off");		
-		
+
 		//populate the form fields with current localStorage values.
 		$('fname').value = item.fname[1];
 		$('lname').value = item.lname[1];
@@ -258,7 +259,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		editSubmit.addEventListener("click", validate);
 		editSubmit.key = this.key;			
 	}
-	
+
 	function deleteItem(){
 		var ask = confirm("Are you sure you want to delete this record?");
 		if(ask){
@@ -269,7 +270,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			alert("Record was NOT deleted.");
 		}
 	}
-	
+
 	function clearData(){
 		//clear data from local storage.
 		if(localStorage.length === 0){
@@ -281,8 +282,8 @@ window.addEventListener("DOMContentLoaded", function(){
 			return false;
 		}		
 	}
-	
-	
+
+
 	function validate(e){
 		//Define the elements we want to check
 		var getFname 		= $('fname');
@@ -293,9 +294,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var getZip   		= $('zip');
 		var getOccasion     = $('occasions');
 		var getCalDay		= $('date');
-		
-		alert(getCalDay.value);alert(typeof getCalDay.value);
-		
+
 		//Reset Error Messages
 		errMsg.innerHTML = "";
 		getFname.style.border = "1px solid black";
@@ -306,24 +305,24 @@ window.addEventListener("DOMContentLoaded", function(){
 		getZip.style.border = "1px solid blak";
 		getOccasion.style.border = "1px solid black";
 		getCalDay.style.border = "1px solid black";
-		
+
 		//Get Error messages
 		var messageAry = [];
-				
+
 		//First Name Validation
 		if(getFname.value ===""){
 			var fNameError = "Please enter a first name.";
 			getFname.style.border = "1px solid red";
 			messageAry.push(fNameError);			
 		}
-		
+
 		//Last Name Validation
 		if(getLname.value ===""){
 			var lNameError = "Please enter a last name.";
 			getLname.style.border = "1px solid red";
 			messageAry.push(lNameError);			
 		}
-		
+
 		//Email Validation
 		var re = /^\w+([\.\-]?\w+)*@\w+([\.\-]?\w+)*(\.\w{2,3})$/;
 		if(!(re.exec(getEmail.value))){
@@ -331,7 +330,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			getEmail.style.border ="1px solid red";
 			messageAry.push(emailError);
 		}
-		
+
 		//Telephone Validation
 		var phone = /^\d{3}-\d{3}-\d{4}$/;
 		if(!(phone.exec(getTelephone.value))){
@@ -339,14 +338,14 @@ window.addEventListener("DOMContentLoaded", function(){
 			getTelephone.style.border = "1px solid red";
 			messageAry.push(phoneError);
 		}
-		
+
 		//State Validation
 		if(getState.value === "--Which State?--"){
 			var stateError = "Please choose a state.";
 			getState.style.border = "1px solid red";
 			messageAry.push(stateError);	
 		}	
-		
+
 		//Zip Code Validation
 		var zip = /^\d{5}(?:[\-\s]\d{4})?$/;
 		if(!(zip.exec(getZip.value))){
@@ -354,16 +353,14 @@ window.addEventListener("DOMContentLoaded", function(){
 			getZip.style.border = "1px solid red";
 			messageAry.push(zipError);
 		}
-		
+
 		//Occasion Validation
 		if(getOccasion.value === "--Which Special Occasion?--"){
 			var occasionError = "Please choose an occasion.";
 			getOccasion.style.border = "1px solid red";
 			messageAry.push(occasionError);	
 		}	
-		
-		
-		
+
 		//Date Validation
 		var date =/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s\d{2},\s\d{4}/i;
 		if(!(date.exec(getCalDay.value))){
@@ -371,7 +368,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			getCalDay.style.border = "1px solid red";
 			messageAry.push(dateError);
 		}
-		
+
 		//If there were errors, display them on the screen
 		if(messageAry.length >=1){
 			for(var i = 0, j=messageAry.length; i<j; i++){
@@ -387,7 +384,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		saveData(this.key);	
 	}
 }
-	
+
 
 //Set Link and Submit Click Events
 
@@ -398,4 +395,3 @@ window.addEventListener("DOMContentLoaded", function(){
 		var save = $('submit');
 		save.addEventListener("click", validate);
 });
-
