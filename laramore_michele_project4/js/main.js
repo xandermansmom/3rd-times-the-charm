@@ -65,7 +65,6 @@ window.addEventListener("DOMContentLoaded", function(){
 	//Find value of selected radio button
 	function getSelectedRadio(){
 		var radios = document.forms[0].sex;
-		radios.label.style = "black";
 		for(var i=0; i<radios.length; i++){
 			if(radios[i].checked){
 				sexValue = radios[i].value;
@@ -145,7 +144,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	var makeList = document.createElement('ul');
 	makeDiv.appendChild(makeList);
 	document.body.appendChild(makeDiv);
-	$('items').style.display = "display";		
+	$('items').style.display = "block";		
 	for(var i=0, len=localStorage.length; i<len; i++){
 		var makeLi = document.createElement('li');
 		var linksLi = document.createElement('li');
@@ -174,8 +173,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		makeSubList.appendChild(imageLi);
 		var newImg = document.createElement('img');
 		var setSrc = newImg.setAttribute("src", "images/"+ catName +".png");
-		imageLi.appendchild(newImg);
-
+		imageLi.appendChild(newImg);
 	}
 
 	//Auto Populate Local Storage
