@@ -155,7 +155,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var obj =JSON.parse(value);	
 		var makeSubList = document.createElement('ul');
 		makeLi.appendChild(makeSubList);
-		getImage(obj.occasion[1], makeSubList);
+		getImage(obj.occasions[1], makeSubList);
 		for(var n in obj){
 			var makeSubLi = document.createElement('li');
 			makeSubList.appendChild(makeSubLi);
@@ -294,6 +294,8 @@ window.addEventListener("DOMContentLoaded", function(){
 		var getOccasion     = $('occasions');
 		var getCalDay		= $('date');
 		
+		alert(getCalDay.value);alert(typeof getCalDay.value);
+		
 		//Reset Error Messages
 		errMsg.innerHTML = "";
 		getFname.style.border = "1px solid black";
@@ -359,6 +361,8 @@ window.addEventListener("DOMContentLoaded", function(){
 			getOccasion.style.border = "1px solid red";
 			messageAry.push(occasionError);	
 		}	
+		
+		
 		
 		//Date Validation
 		var date =/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s\d{2},\s\d{4}/i;

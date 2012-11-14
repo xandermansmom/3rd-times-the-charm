@@ -26,14 +26,42 @@ h1 {
 	-moz-border-radius: 8px;
 	max-width: 92%;	
 	}
+
+h2 {
+	 color: #56456e;
+	 position: absolute;
+	 top: 30%;
+	 left: 35%;
+	}
+	
+p {	 
+	 position: absolute;
+	 top: 35%;
+	 width: 400px;
+	 left: 32%;
+	 color: #56456e;
+	 font-size: 20px;
+	}
+	
+a img {
+	  position: absolute;
+	  top: 50%;
+	  left: 34%;
+	}
+	  
+	
 	
 nav	a {
-	color: white; 
-	border: 2px outset;
+	color: black; 
+	border: 2px outset white;
+	outline: 1px solid black;
+	outline-offset: 1px;
 	padding: 2px;
 	text-decoration: none;
-	padding-right: 10px;
-	background:#56456e;	
+	text-align: center;
+	padding-right: 5px;
+	margin-right: 10px;
+	background:#ebe1f9;	
 	font: 14px;	
 	position: relative;
 	top: 10px;
@@ -182,7 +210,6 @@ input[type=button] {
    background:#56456e;
    position: relative;
    top: 25px;
- 	
 	}
 			
 .submit input {  
@@ -240,4 +267,25 @@ input, textarea, select{
 input[type=button] {
 	left: 10px;
 	}
+	
+h2 {
+	 position: absolute;
+	 top: 30%;
+	 left: 15%;
+	}
+	
+p {	 
+	 position: absolute;
+	 top: 50%;
+	 width: 225px;
+	 left: 15%;
+	 font-size: 20px;
+	}
+	
+a img {
+	  background-image:url(images/Button2.jpg);
+	  position: absolute;
+	  top: 105%;
+	  left: 25%;
+	}		
 }
