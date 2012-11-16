@@ -291,7 +291,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var getState        = $('states');
 		var getZip   		= $('zip');
 		var getOccasion     = $('occasions');
-		var getCalDay		= $('date');
+		
 
 		//Reset Error Messages
 		errMsg.innerHTML = "";
@@ -302,8 +302,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		getState.style.border = "1px solid black";
 		getZip.style.border = "1px solid blak";
 		getOccasion.style.border = "1px solid black";
-		getCalDay.style.border = "1px solid black";
-
+		
 		//Get Error messages
 		var messageAry = [];
 
@@ -359,13 +358,6 @@ window.addEventListener("DOMContentLoaded", function(){
 			messageAry.push(occasionError);	
 		}	
 
-		//Date Validation
-		var date =/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s\d{2},\s\d{4}/i;
-		if(!(date.exec(getCalDay.value))){
-			var dateError = "Please enter a valid date in the following format: Jan/dd/yyyy";
-			getCalDay.style.border = "1px solid red";
-			messageAry.push(dateError);
-		}
 
 		//If there were errors, display them on the screen
 		if(messageAry.length >=1){
